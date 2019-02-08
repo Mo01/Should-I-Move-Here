@@ -50,7 +50,7 @@ function zomatoCall(event) {
           $(".zomato-restaurants").append(
             "<div class='img-" +
               i +
-              " col-md-4 image-box'><a class='restaurant-title' href='" +
+              " col-md-4 col-xs-6 image-box'><a class='restaurant-title' href='" +
               bestRestaurants[i].restaurant.url +
               "'>" +
               bestRestaurants[i].restaurant.name +
@@ -58,11 +58,11 @@ function zomatoCall(event) {
           );
           if (bestRestaurants[i].restaurant.featured_image === "") {
             $(".img-" + i).append(
-              "<img class='restaurant-img' src='assets/images/noimg.png'>"
+              "<img class='restaurant-img img-thumbnail' src='assets/images/noimg.png'>"
             );
           } else {
             $(".img-" + i).append(
-              "<img class='restaurant-img' src ='" +
+              "<img class='restaurant-img img-thumbnail' src ='" +
                 bestRestaurants[i].restaurant.featured_image +
                 "'>"
             );

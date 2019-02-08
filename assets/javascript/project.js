@@ -37,9 +37,15 @@ function zomatoCall(event){
                         $(".zomato-top-cuisines").append("<p>" + topCuisines[i])
                     }
                     let nightlifeIndex = cityInfo.nightlife_index
-                    console.log(nightlifeIndex)
                     $(".zomato-nightlife").append("<h2>" + nightlifeIndex)
                     $(".city-submit").on("click", zomatoCall)
+                    let bestRestaurants = cityInfo.best_rated_restaurant
+                    for (let i=0;i<bestRestaurants.length;i++){
+                        console.log(bestRestaurants[i].restaurant)
+                        console.log(bestRestaurants[i].restaurant.name)
+                        console.log(bestRestaurants[i].restaurant.featured_image)
+                        console.log(bestRestaurants[i].restaurant.url)
+                    }
             }
             xhr.send();
         }

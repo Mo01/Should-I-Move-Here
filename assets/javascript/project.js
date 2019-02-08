@@ -41,6 +41,8 @@ function zomatoCall(event){
                     $(".city-submit").on("click", zomatoCall)
                     let bestRestaurants = cityInfo.best_rated_restaurant
                     for (let i=0;i<bestRestaurants.length;i++){
+                        $(".zomato-restaurants").append("<h4>" + bestRestaurants[i].restaurant.name)
+                        $(".zomato-restaurants").append("<img class='restaurant-img' src ='" + bestRestaurants[i].restaurant.featured_image + "'>")
                         console.log(bestRestaurants[i].restaurant)
                         console.log(bestRestaurants[i].restaurant.name)
                         console.log(bestRestaurants[i].restaurant.featured_image)

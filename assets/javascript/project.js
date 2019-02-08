@@ -16,6 +16,7 @@ function zomatoCall(event){
         if(this.status == 200){ //If success
             $(".zomato-nightlife").empty();
             $(".zomato-top-cuisines").empty();
+            $(".zomato-restaurants").empty();
             let location = JSON.parse(this.responseText); //Parsing response text into JSON object
             let entityId = location.location_suggestions[0].entity_id; //Sets ID of city
             let type = location.location_suggestions[0].entity_type; //Specifies that request is for a city
@@ -42,7 +43,11 @@ function zomatoCall(event){
                     let bestRestaurants = cityInfo.best_rated_restaurant
                     for (let i=0;i<bestRestaurants.length;i++){
                         $(".zomato-restaurants").append("<h4>" + bestRestaurants[i].restaurant.name)
-                        $(".zomato-restaurants").append("<img class='restaurant-img' src ='" + bestRestaurants[i].restaurant.featured_image + "'>")
+                        if(bestRestaurants[i].restaurant.featured_image === ""){
+                            $(".zomato-restaurants").append("<img class='restaurant-img' src='assets/images/noimg.png'>")
+                        } else {
+                            $(".zomato-restaurants").append("<img class='restaurant-img' src ='" + bestRestaurants[i].restaurant.featured_image + "'>")
+                        }
                         $(".zomato-restaurants").append("<a href='"+ bestRestaurants[i].restaurant.url + "' class='website-link'>Link to Website</a>")
                         console.log(bestRestaurants[i].restaurant)
                         console.log(bestRestaurants[i].restaurant.name)

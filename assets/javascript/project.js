@@ -43,6 +43,7 @@ function zomatoCall(event){
                     for (let i=0;i<bestRestaurants.length;i++){
                         $(".zomato-restaurants").append("<h4>" + bestRestaurants[i].restaurant.name)
                         $(".zomato-restaurants").append("<img class='restaurant-img' src ='" + bestRestaurants[i].restaurant.featured_image + "'>")
+                        $(".zomato-restaurants").append("<a href='"+ bestRestaurants[i].restaurant.url + "' class='website-link'>Link to Website</a>")
                         console.log(bestRestaurants[i].restaurant)
                         console.log(bestRestaurants[i].restaurant.name)
                         console.log(bestRestaurants[i].restaurant.featured_image)

@@ -1,6 +1,7 @@
 //Zomato API Call
 function zomatoCall(event){
     event.preventDefault(); //Stop button from submitting
+    $(".city-submit").off();
     $(".zomato-nightlife").empty();
     $(".zomato-top-cuisines").empty();
     let query = $(".city-input").val()
@@ -13,6 +14,8 @@ function zomatoCall(event){
 
     xhr.onload = function() {
         if(this.status == 200){ //If success
+            $(".zomato-nightlife").empty();
+            $(".zomato-top-cuisines").empty();
             let location = JSON.parse(this.responseText); //Parsing response text into JSON object
             let entityId = location.location_suggestions[0].entity_id; //Sets ID of city
             let type = location.location_suggestions[0].entity_type; //Specifies that request is for a city
@@ -36,6 +39,7 @@ function zomatoCall(event){
                     let nightlifeIndex = cityInfo.nightlife_index
                     console.log(nightlifeIndex)
                     $(".zomato-nightlife").append("<h2>" + nightlifeIndex)
+                    $(".city-submit").on("click", zomatoCall)
             }
             xhr.send();
         }

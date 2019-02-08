@@ -45,3 +45,53 @@ function zomatoCall(event){
 
 //Click listeners
 $(".city-submit").on("click", zomatoCall)
+
+
+//*****************************************************************//
+
+//Google Map API
+
+      function initMap() {
+        var myLatLng = {lat: 30.2672, lng: -97.7431};
+
+        // Create a map object and specify the DOM element
+        // for display.
+        var map = new google.maps.Map(document.getElementById('map'), {
+          center: myLatLng,
+          zoom: 11
+        });
+
+        // Create a marker and set its position.
+        var marker = new google.maps.Marker({
+          map: map,
+          position: myLatLng,
+          draggable: true,
+          title: 'Welcome to SIMTO!',
+          icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+
+        });
+        // to serarch for the location
+        var searchBox = new google.maps.places.SearchBox(document.getElementById("city-input"));
+
+        // to change event on search box
+        google.maps.event.addListener(searchBox, 'places_changed',function(){
+
+            var places = searchBox.getPlaces();
+            
+            //bound
+            var bounds = new google.maps.LatLngBounds();
+            var i, place;
+            for (i=0; place=places[i];i++){
+              bounds.extend(place.geometry.location);
+              //set marker postion new....
+              marker.setPosition(place.geometry.location);
+            }
+            //fit to the bound
+            map.fitBounds(bounds);
+            // set zoom
+            map.setZoom(11);
+        });
+
+
+      }    
+   //Google map API ended

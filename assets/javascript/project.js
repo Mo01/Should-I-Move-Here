@@ -76,7 +76,7 @@ function zomatoCall(event) {
           );
           if (bestRestaurants[i].restaurant.featured_image === "") {
             $(".img-" + i).append(
-              "<img class='restaurant-img img-thumbnail' src='assets/images/noimg.png'>"
+              "<img id='blank-img' class='restaurant-img img-thumbnail' src='assets/images/noimg.png'>"
             );
           } else {
             $(".img-" + i).append(

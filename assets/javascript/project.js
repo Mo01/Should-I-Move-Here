@@ -1,9 +1,10 @@
 //Zomato API Call
+
 function zomatoCall(event) {
-  event.preventDefault(); //Stop button from submitting
   $(".city-submit").off();
   $(".zomato-nightlife").empty();
   $(".zomato-top-cuisines").empty();
+  console.log($(".city-input").val())
   let query = $(".city-input").val();
   let URL = "https://developers.zomato.com/api/v2.1/locations?query=" + query;
   let key = "c7026f9c7b7d563d6a029354b3f03a9a";
@@ -43,7 +44,9 @@ function zomatoCall(event) {
           $(".zomato-top-cuisines").append("<p>" + topCuisines[i]);
         }
         let nightlifeIndex = cityInfo.nightlife_index;
-        $(".zomato-nightlife").append("<h2>" + nightlifeIndex);
+        $(".zomato-nightlife").append("<div class='nightlife-score'><h2>" + nightlifeIndex);
+        let cityPopularity = cityInfo.popularity;
+        $(".zomato-nightlife").append("<div class='nightlife-score'><h2>" + cityPopularity);
         $(".city-submit").on("click", zomatoCall);
         let bestRestaurants = cityInfo.best_rated_restaurant;
         for (let i = 0; i < bestRestaurants.length; i++) {
@@ -76,7 +79,6 @@ function zomatoCall(event) {
 }
 
 //Click listeners
-$(".city-submit").on("click", zomatoCall);
 
 //*****************************************************************//
 
@@ -106,6 +108,8 @@ function initMap() {
     document.getElementById("city-input")
   );
 
+  console.log(searchBox)
+
   // to change event on search box
   google.maps.event.addListener(searchBox, "places_changed", function() {
     var places = searchBox.getPlaces();
@@ -117,6 +121,44 @@ function initMap() {
       bounds.extend(place.geometry.location);
       //set marker postion new....
       marker.setPosition(place.geometry.location);
+      // Latitude
+      var lat1 = places[i].geometry.location.lat();
+      console.log(lat1);
+      //Longitude
+      var lng1 = places[i].geometry.location.lng();
+      console.log(lng1);
+      var cityName = places[i];
+      console.log(cityName);
+      //info window
+      var contentString = '<div id="content">' +
+        '<h6>Latitude =' + lat1 + '</h6><br>' +
+        '<h6>Longitude  =' + lng1 + '</h6>' +
+
+
+        '</div>';
+
+      var infowindow = new google.maps.InfoWindow({
+        content: contentString
+      });
+      
+         // Add the circle for this city to the map.
+         var cityCircle = new google.maps.Circle({
+          strokeColor: '#FF0000',
+          strokeOpacity: 0.8,
+          strokeWeight: 2,
+          fillColor: '#FF0000',
+          fillOpacity: 0.35,
+          map: map,
+          center: {lat: lat1, lng: lng1},
+          radius: Math.sqrt(100000000)
+        });
+        console.log("cityCircle =   "+cityCircle);
+
+      
+      marker.addListener('click', function () {
+        infowindow.open(map, marker);
+      });
+      zomatoCall();
     }
     //fit to the bound
     map.fitBounds(bounds);
@@ -125,3 +167,6 @@ function initMap() {
   });
 }
 //Google map API ended
+
+
+   //Google map API ended

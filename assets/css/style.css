@@ -1,3 +1,7 @@
+.headline {
+    text-align:center;
+}
+
 .restaurant-img {
     width: 350px;
     height: 200px;
@@ -10,3 +14,24 @@
 .restaurant-title {
     font-size:18px;
 }
+
+.zomato-nightlife{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.nightlife-score{
+    background-color: green;
+    color: white;
+    width: 67px;
+    height: 67px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+
+.nightlife-score > h2{
+    margin-top: 17px;
+}
+

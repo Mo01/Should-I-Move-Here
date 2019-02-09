@@ -1,6 +1,5 @@
 //Zomato API Call
 function zomatoCall(event) {
-  event.preventDefault(); //Stop button from submitting
   $(".zomato-nightlife").empty();
   $(".zomato-top-cuisines").empty();
   let query = $(".city-input").val()

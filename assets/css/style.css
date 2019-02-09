@@ -1,0 +1,60 @@
+.headline {
+    text-align:center;
+}
+
+.restaurant-img {
+    width: 350px;
+    height: 200px;
+}
+
+.image-box{
+    text-align:center;
+}
+
+.restaurant-title {
+    font-size:18px;
+}
+
+.score-box{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+.score-bubble{
+    color: white;
+    width: 67px;
+    height: 67px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+}
+
+.green {
+    background-color:green;
+}
+
+.yellow {
+    background-color:yellow;
+}
+
+.red{
+    background-color:red;
+}
+
+.score-titles{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+
+.score-bubble > h2{
+    margin-top: 17px;
+}
+
+.score-titles > p {
+    width:67px;
+}
+
+#blank-img{
+    height: 146.66px;
+}

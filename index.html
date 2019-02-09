@@ -5,7 +5,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Document</title>
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Should I Move To...</title>
     <link
       rel="stylesheet"
       href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
@@ -22,27 +23,35 @@
         async defer></script>
   </head>
   <body>
+    <div class="container">
     <input class="city-input" id="city-input" type="text" />
-    <div id="map" style="z-index: 3; height: 400px; width: 400px; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"></div>
-    <div id="map" ></div>
     <button class="city-submit" type="submit">Submit</button>
-    <div class="headline">
-            <h1>Top Cuisines</h1>
+    <div id="map" style="z-index: 3; height: 400px; width: 400px; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;"></div>    <div class="headline">
+        <div class="row">
+      <div class="col-md-6">    
+      <h1>Top Cuisines</h1>
       <div class="zomato-top-cuisines">
         
       </div>
     </div>
+    
+  <div class="col-md-6"> 
     <div class="headline">
-            <h1>Nightlife Index</h1>
+            <h1>Entertainment scores</h1></div>
       <div class="zomato-nightlife">
      
       </div>
     </div>
+        </div>
 
     <div class="headline">
-      <h1>Best Rated Restaurants</h1>
-    </div>
+      <h1>Best Rated Restaurants</h1></div>
+      <div class="zomato-restaurants">
 
+     
+      </div>
+    </div>
+  </div>
 
     <script src="assets/javascript/project.js"></script>
   </body>

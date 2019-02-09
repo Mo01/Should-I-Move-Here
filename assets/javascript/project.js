@@ -1,11 +1,9 @@
 //Zomato API Call
-
 function zomatoCall(event) {
-  $(".city-submit").off();
+  event.preventDefault(); //Stop button from submitting
   $(".zomato-nightlife").empty();
   $(".zomato-top-cuisines").empty();
-  console.log($(".city-input").val())
-  let query = $(".city-input").val();
+  let query = $(".city-input").val()
   let URL = "https://developers.zomato.com/api/v2.1/locations?query=" + query;
   let key = "c7026f9c7b7d563d6a029354b3f03a9a";
   //Declaring and opening an XHR
@@ -109,7 +107,7 @@ function initMap() {
     zoom: 11
   });
 
-  // Create a marker and set its position.
+  // Create a marker and set its position..
   var marker = new google.maps.Marker({
     map: map,
     position: myLatLng,
@@ -182,6 +180,4 @@ function initMap() {
   });
 }
 //Google map API ended
-
-
    //Google map API ended

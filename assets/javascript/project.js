@@ -43,10 +43,25 @@ function zomatoCall(event) {
         for (let i = 0; i < topCuisines.length; i++) {
           $(".zomato-top-cuisines").append("<p>" + topCuisines[i]);
         }
-        let nightlifeIndex = cityInfo.nightlife_index;
-        $(".zomato-nightlife").append("<div class='nightlife-score'><h2>" + nightlifeIndex);
-        let cityPopularity = cityInfo.popularity;
-        $(".zomato-nightlife").append("<div class='nightlife-score'><h2>" + cityPopularity);
+        let nightlifeIndex = Number(cityInfo.nightlife_index);
+        let cityPopularity = Number(cityInfo.popularity);
+        $(".zomato-nightlife").append("<div class='score-titles'><p>Nightlife</p><p>Popularity</p></div><div class='score-box'><div class='nightlife-score score-bubble'><h2>" + nightlifeIndex + "</div><div class='popularity-score score-bubble'><h2>" + cityPopularity + "</div></div>");
+        //Add color of popularity index
+        if(cityPopularity >= 3.5){
+          $(".popularity-score").addClass("green")
+        } else if (cityPopularity > 1.5 && cityPopularity <3.5){
+          $(".popularity-score").addClass("yellow")
+        } else if (cityPopularity < 1.5){
+          $(".popularity-score").addClass("red")
+        }
+        //Add color of nightlife index
+        if(nightlifeIndex >= 3.5){
+          $(".nightlife-score").addClass("green")
+        } else if (nightlifeIndex > 1.5 && cityPopularity <3.5){
+          $(".nightlife-score").addClass("yellow")
+        } else if (nightlifeIndex < 1.5){
+          $(".nightlife-score").addClass("red")
+        }
         $(".city-submit").on("click", zomatoCall);
         let bestRestaurants = cityInfo.best_rated_restaurant;
         for (let i = 0; i < bestRestaurants.length; i++) {

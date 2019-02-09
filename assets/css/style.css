@@ -15,13 +15,12 @@
     font-size:18px;
 }
 
-.zomato-nightlife{
+.score-box{
     display:flex;
     justify-content: space-evenly;
 }
 
-.nightlife-score{
-    background-color: green;
+.score-bubble{
     color: white;
     width: 67px;
     height: 67px;
@@ -30,8 +29,28 @@
     justify-content: center;
 }
 
+.green {
+    background-color:green;
+}
 
-.nightlife-score > h2{
+.yellow {
+    background-color:yellow;
+}
+
+.red{
+    background-color:red;
+}
+
+.score-titles{
+    display:flex;
+    justify-content: space-evenly;
+}
+
+
+.score-bubble > h2{
     margin-top: 17px;
 }
 
+.score-titles > p {
+    width:67px;
+}

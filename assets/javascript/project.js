@@ -1,3 +1,22 @@
+//Brewery Call
+function breweryCall(city) {
+
+  var queryURL =
+    "https://api.openbrewerydb.org/breweries?&by_city=" + city;
+  console.log(queryURL);
+
+  $.ajax({
+    url: queryURL,
+    method: "GET"
+  }).then(function (response) {
+    var results = response.data;
+    for (let i = 0; i < response.length; i++) {
+      console.log(response[i].name)
+    }
+
+  });
+}
+
 // Weather Call
 function weatherCall(lat, long) {
   var tempsArray = [];
@@ -271,6 +290,7 @@ function initMap() {
       });
       zomatoCall(cityName);
       weatherCall(lat1, lng1);
+      breweryCall(cityName);
     }
     //fit to the bound
     map.fitBounds(bounds);

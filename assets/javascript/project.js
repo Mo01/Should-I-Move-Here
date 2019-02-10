@@ -160,7 +160,8 @@ function zomatoCall(city) {
         }
         let nightlifeIndex = Number(cityInfo.nightlife_index);
         let cityPopularity = Number(cityInfo.popularity);
-        $(".zomato-nightlife").append("<div class='score-titles'><p>Nightlife</p><p>Food</p></div><div class='score-box'><div class='nightlife-score score-bubble'><h2>" + nightlifeIndex + "</div><div class='popularity-score score-bubble'><h2>" + cityPopularity + "</div></div>");
+        $("#food-header").append("<div class='popularity-score score-bubble'><h2>" + cityPopularity + "</div></div>");
+        $("#nightlife-header").append("<div class='score-box'><div class='nightlife-score score-bubble'><h2>" + nightlifeIndex + "</div>");
         //Add color of popularity index
         if (cityPopularity >= 3.5) {
           $(".popularity-score").addClass("green")

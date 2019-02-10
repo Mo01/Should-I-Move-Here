@@ -1,5 +1,32 @@
+body {
+    background: url('../images/giphy.gif') no-repeat center center fixed;
+    height: 100vh;
+}
+
+.container {
+    margin: 0px;
+}
+
+#jumbo-header {
+    text-align: center;
+}
+
+#city-input {
+    width: 30%;
+    height: 40px;
+    padding-left: 4px;
+}
+
+#top-row {
+    min-height: 300px;
+}
+
 .headline {
-    text-align:center;
+    text-align: center;
+}
+
+.zomato-row {
+    margin-top: 30px;
 }
 
 .restaurant-img {
@@ -7,54 +34,69 @@
     height: 200px;
 }
 
-.image-box{
-    text-align:center;
+.image-box {
+    text-align: center;
 }
 
 .restaurant-title {
-    font-size:18px;
+    font-size: 18px;
 }
 
-.score-box{
-    display:flex;
+.score-box {
+    display: flex;
     justify-content: space-evenly;
 }
 
-.score-bubble{
+.score-bubble {
     color: white;
-    width: 67px;
-    height: 67px;
+    width: 77px;
+    height: 77px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
 }
 
+.restaurants-section {
+    margin-top: 30px;
+}
+
 .green {
-    background-color:green;
+    background-color: green;
 }
 
 .yellow {
-    background-color:yellow;
+    background-color: yellow;
 }
 
-.red{
-    background-color:red;
+.red {
+    background-color: red;
 }
 
-.score-titles{
-    display:flex;
+.score-titles {
+    display: flex;
     justify-content: space-evenly;
 }
 
-
-.score-bubble > h2{
-    margin-top: 17px;
+.score-bubble>h2 {
+    margin-top: 20px;
 }
 
-.score-titles > p {
-    width:67px;
+.score-titles>p {
+    width: 67px;
 }
 
-#blank-img{
+#blank-img {
     height: 146.66px;
+}
+
+#map {
+    z-index: 3;
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    border-width: 0px;
+    margin: 0px;
+    left: 0px;
+    top: 0px;
+    touch-action: pan-x pan-y;
 }

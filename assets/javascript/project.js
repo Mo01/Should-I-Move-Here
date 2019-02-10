@@ -1,8 +1,8 @@
 // Weather Call
 function weatherCall(lat, long) {
   var tempsArray = [];
-  //var key = "cd768e4e7c686a1539e5422b289fe5ee";
-  var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26"
+  var key = "cd768e4e7c686a1539e5422b289fe5ee";
+  //var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26"
   var latitude = lat.toString();
   var longitude = long.toString();
   var date = new Date();
@@ -16,7 +16,7 @@ function weatherCall(lat, long) {
       month = i;
     }
     var queryDate = lastYear + "-" + month + "-15" + "T12:00:00";
-    var queryURL = "https://api.darksky.net/forecast/" + colinkey + "/" + latitude + "," + longitude + "," + queryDate;
+    var queryURL = "https://api.darksky.net/forecast/" + key + "/" + latitude + "," + longitude + "," + queryDate;
 
     $.ajax({
       method: "GET",
@@ -98,10 +98,10 @@ function weatherCall(lat, long) {
 
 
 //Zomato API Call
-function zomatoCall(event) {
+function zomatoCall(city) {
   $(".zomato-nightlife").empty();
   $(".zomato-top-cuisines").empty();
-  let query = $(".city-input").val()
+  let query = city;
   let URL = "https://developers.zomato.com/api/v2.1/locations?query=" + query;
   let key = "c7026f9c7b7d563d6a029354b3f03a9a";
   //Declaring and opening an XHR
@@ -219,7 +219,7 @@ function initMap() {
     document.getElementById("city-input")
   );
 
-  console.log(searchBox)
+  console.log(searchBox);
 
   // to change event on search box
   google.maps.event.addListener(searchBox, "places_changed", function () {
@@ -238,7 +238,7 @@ function initMap() {
       //Longitude
       var lng1 = places[i].geometry.location.lng();
       console.log(lng1);
-      var cityName = places[i];
+      var cityName = places[i].name;
       console.log(cityName);
       //info window
       var contentString = '<div id="content">' +
@@ -269,7 +269,7 @@ function initMap() {
       marker.addListener('click', function () {
         infowindow.open(map, marker);
       });
-      zomatoCall();
+      zomatoCall(cityName);
       weatherCall(lat1, lng1);
     }
     //fit to the bound
@@ -278,5 +278,6 @@ function initMap() {
     map.setZoom(11);
   });
 }
+
 //Google map API ended
    //Google map API ended

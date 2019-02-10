@@ -49,8 +49,8 @@ body {
 
 .score-bubble {
     color: white;
-    width: 67px;
-    height: 67px;
+    width: 77px;
+    height: 77px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -78,7 +78,7 @@ body {
 }
 
 .score-bubble>h2 {
-    margin-top: 17px;
+    margin-top: 20px;
 }
 
 .score-titles>p {

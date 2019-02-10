@@ -98,10 +98,10 @@ function weatherCall(lat, long) {
 
 
 //Zomato API Call
-function zomatoCall(event) {
+function zomatoCall(city) {
   $(".zomato-nightlife").empty();
   $(".zomato-top-cuisines").empty();
-  let query = $(".city-input").val()
+  let query = city;
   let URL = "https://developers.zomato.com/api/v2.1/locations?query=" + query;
   let key = "c7026f9c7b7d563d6a029354b3f03a9a";
   //Declaring and opening an XHR
@@ -238,7 +238,7 @@ function initMap() {
       //Longitude
       var lng1 = places[i].geometry.location.lng();
       console.log(lng1);
-      var cityName = places[i];
+      var cityName = places[i].name;
       console.log(cityName);
       //info window
       var contentString = '<div id="content">' +
@@ -269,7 +269,7 @@ function initMap() {
       marker.addListener('click', function () {
         infowindow.open(map, marker);
       });
-      zomatoCall();
+      zomatoCall(cityName);
       weatherCall(lat1, lng1);
     }
     //fit to the bound

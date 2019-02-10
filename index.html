@@ -31,8 +31,19 @@
 
 
       <div class="col-md-8" id="weather">
-        <h1>Hey</h1>
-        <canvas id="tempChart"></canvas>
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Average Weather</h2>
+          </div>
+          <div class="card-body">
+            <canvas id="tempChart"></canvas>
+          </div>
+        </div>
+
+
+
+
 
 
 
@@ -41,54 +52,57 @@
 
 
 
-    <div class="headline">
-      <div class="row">
-        <div class="col-md-6">
+    <div class="row zomato-row">
+      <div class="col-md-6">
 
 
 
-          <div class="card">
-            <div class="card-header">
-              Top Cuisines
-            </div>
-            <div class="card-body zomato-top-cuisines">
-
-            </div>
+        <div class="card">
+          <div class="card-header">
+            <h2>Top Cuisines</h2>
           </div>
+          <div class="card-body zomato-top-cuisines">
 
-
-
+          </div>
         </div>
 
-        <div class="col-md-6">
-          <div class="headline">
-            <h1>Entertainment scores</h1>
+
+
+      </div>
+
+      <div class="col-md-6">
+
+        <div class="card">
+          <div class="card-header">
+            <h2>Entertainment scores</h2>
           </div>
-          <div class="zomato-nightlife">
+          <div class="card-body zomato-nightlife">
 
           </div>
         </div>
       </div>
 
+      <div class="col-md-12 restaurants-section">
+        <div class="card">
+          <div class="card-header">
+            <h2>Best Rated Restaurants</h2>
+          </div>
+          <div class="card-body zomato-restaurants row">
 
-      <div class="headline">
-        <h1>Best Rated Restaurants</h1>
-      </div>
-      <div class="row zomato-restaurants">
-
-
+          </div>
+        </div>
       </div>
     </div>
-  </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-    crossorigin="anonymous"></script>
-  <!-- Chart.js Library -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
-  <!--Google API map-->
-  <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs5IvD5ky49g5YXR80uLMUtm-p86ulSXY&callback=initMap&libraries=places"
-    async defer></script>
-  <script src="assets/javascript/project.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.js"
+      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <!-- Chart.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+    <!--Google API map-->
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs5IvD5ky49g5YXR80uLMUtm-p86ulSXY&callback=initMap&libraries=places"
+      async defer></script>
+    <script src="assets/javascript/project.js"></script>
 </body>
 
 </html>

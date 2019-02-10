@@ -1,7 +1,11 @@
-/* body {
-    background-image: url('../images/austin2.gif');
-    background-repeat: no-repeat;
-} */
+body {
+    background: url('../images/giphy.gif') no-repeat center center fixed;
+    height: 100vh;
+}
+
+.container {
+    margin: 0px;
+}
 
 #jumbo-header {
     text-align: center;
@@ -19,6 +23,10 @@
 
 .headline {
     text-align: center;
+}
+
+.zomato-row {
+    margin-top: 30px;
 }
 
 .restaurant-img {
@@ -46,6 +54,10 @@
     border-radius: 50%;
     display: flex;
     justify-content: center;
+}
+
+.restaurants-section {
+    margin-top: 30px;
 }
 
 .green {

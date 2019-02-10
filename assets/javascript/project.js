@@ -1,8 +1,8 @@
 // Weather Call
 function weatherCall(lat, long) {
   var tempsArray = [];
-  //var key = "cd768e4e7c686a1539e5422b289fe5ee";
-  var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26"
+  var key = "cd768e4e7c686a1539e5422b289fe5ee";
+  //var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26"
   var latitude = lat.toString();
   var longitude = long.toString();
   var date = new Date();
@@ -16,7 +16,7 @@ function weatherCall(lat, long) {
       month = i;
     }
     var queryDate = lastYear + "-" + month + "-15" + "T12:00:00";
-    var queryURL = "https://api.darksky.net/forecast/" + colinkey + "/" + latitude + "," + longitude + "," + queryDate;
+    var queryURL = "https://api.darksky.net/forecast/" + key + "/" + latitude + "," + longitude + "," + queryDate;
 
     $.ajax({
       method: "GET",

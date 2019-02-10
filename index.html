@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <title>Should I Move To...</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous" />
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
     crossorigin="anonymous"></script>
   <!-- Chart.js Library -->
@@ -21,27 +21,51 @@
 
 <body>
   <div class="container">
-    <input class="city-input" id="city-input" type="text" />
-    <button class="city-submit" type="submit">Submit</button>
-    <div class="row">
-      <div class="col-md-4">
-        <div id="map"
-          style="z-index: 3; height: 400px; width: 400px; padding: 0px; border-width: 0px; margin: 0px; left: 0px; top: 0px; touch-action: pan-x pan-y;">
-        </div>
-      </div>
-      <div class="col-md-6" id="weather">
-        <canvas id="tempChart"></canvas>
+    <div class="jumbotron jumbotron-fluid">
+      <div class="container" id="jumbo-header">
+        <h1 class="display-4">Should I Move Here?</h1>
+        <p class="lead">Should I move there? Let us help.</p>
+        <input class="city-input" id="city-input" type="text" placeholder="Enter a city" />
       </div>
     </div>
+
+
+    <div class="row">
+      <div class="col-md-4">
+        <div id="map">
+        </div>
+      </div>
+
+
+      <div class="col-md-8" id="weather">
+
+
+        <canvas id="tempChart"></canvas>
+
+
+
+      </div>
+    </div>
+
 
 
     <div class="headline">
       <div class="row">
         <div class="col-md-6">
-          <h1>Top Cuisines</h1>
-          <div class="zomato-top-cuisines">
 
+
+
+          <div class="card">
+            <div class="card-header">
+              Top Cuisines
+            </div>
+            <div class="card-body zomato-top-cuisines">
+
+            </div>
           </div>
+
+
+
         </div>
 
         <div class="col-md-6">

@@ -219,7 +219,7 @@ function initMap() {
     document.getElementById("city-input")
   );
 
-  console.log(searchBox)
+  console.log(searchBox);
 
   // to change event on search box
   google.maps.event.addListener(searchBox, "places_changed", function () {
@@ -278,5 +278,6 @@ function initMap() {
     map.setZoom(11);
   });
 }
+
 //Google map API ended
    //Google map API ended

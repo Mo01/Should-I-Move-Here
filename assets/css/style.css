@@ -82,11 +82,11 @@ background: url(../images/background.jpg) no-repeat center center fixed;
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: #d8d814;
 }
 
 .red {
-    background-color: red;
+    background-color: #cc1c1c;
 }
 
 .score-titles {

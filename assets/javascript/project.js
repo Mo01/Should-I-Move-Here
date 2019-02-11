@@ -244,8 +244,8 @@ function initMap() {
 
   // to change event on search box
   google.maps.event.addListener(searchBox, "places_changed", function () {
+    $('#main-content').css('display','block');
     var places = searchBox.getPlaces();
-
     //bound
     var bounds = new google.maps.LatLngBounds();
     var i, place;

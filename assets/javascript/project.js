@@ -1,20 +1,18 @@
 //Brewery Call
 function breweryCall(city) {
-
-  var queryURL =
-    "https://api.openbrewerydb.org/breweries?&by_city=" + city;
+  console.log("calling brew");
+  var queryURL = "https://api.openbrewerydb.org/breweries?&by_city=" + city;
   console.log(queryURL);
 
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function (response) {
+  }).then(function(response) {
     var results = response.data;
     for (let i = 0; i < response.length; i++) {
-      console.log(response[i].name)
+      console.log(response[i].name);
       $(".brewery").append("<p>" + response[i].name + "</p>");
     }
-
   });
 }
 
@@ -22,7 +20,7 @@ function breweryCall(city) {
 function weatherCall(lat, long) {
   var tempsArray = [];
   //var key = "cd768e4e7c686a1539e5422b289fe5ee";
-  var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26"
+  var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26";
   var latitude = lat.toString();
   var longitude = long.toString();
   var date = new Date();
@@ -36,21 +34,29 @@ function weatherCall(lat, long) {
       month = i;
     }
     var queryDate = lastYear + "-" + month + "-15" + "T12:00:00";
-    var queryURL = "https://api.darksky.net/forecast/" + key + "/" + latitude + "," + longitude + "," + queryDate;
+    var queryURL =
+      "https://api.darksky.net/forecast/" +
+      colinkey +
+      "/" +
+      latitude +
+      "," +
+      longitude +
+      "," +
+      queryDate;
 
     $.ajax({
       method: "GET",
       url: queryURL,
       crossDomain: true,
       dataType: "jsonp",
-      success: function (response) {
+      success: function(response) {
         callCounter++;
-        console.log('callCounter', callCounter);
+        console.log("callCounter", callCounter);
         var monthObject = {
           time: response.currently.time,
           tempHigh: response.daily.data[0].temperatureHigh,
-          tempLow: response.daily.data[0].temperatureLow,
-        }
+          tempLow: response.daily.data[0].temperatureLow
+        };
         tempsArray.push(monthObject);
         if (tempsArray.length === 12) {
           onDataReceived();
@@ -60,8 +66,8 @@ function weatherCall(lat, long) {
   }
 
   function onDataReceived() {
-    tempsArray.sort(function (a, b) {
-      return (a.time - b.time);
+    tempsArray.sort(function(a, b) {
+      return a.time - b.time;
     });
     createWeatherChart(tempsArray);
   }
@@ -73,49 +79,55 @@ function weatherCall(lat, long) {
       highs.push(tempArray[i].tempHigh);
       lows.push(tempArray[i].tempLow);
     }
-    var ctx = document.getElementById("tempChart").getContext('2d');
+    var ctx = document.getElementById("tempChart").getContext("2d");
     var myChart = new Chart(ctx, {
-      type: 'line',
+      type: "line",
       data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
-        datasets: [{
-          label: 'High Temperature',
-          data: highs,
-          backgroundColor: [
-            'rgba(255, 0, 0, 0)',
-          ],
-          borderColor: [
-            'rgba(255, 0, 0, 1)',
-          ],
-          borderWidth: 2
-        },
-        {
-          label: 'Low Temperature',
-          data: lows,
-          backgroundColor: [
-            'rgba(0,0,256,0)',
-          ],
-          borderColor: [
-            'rgba(0,0,256,1)',
-          ],
-          borderWidth: 2
-        }]
+        labels: [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December"
+        ],
+        datasets: [
+          {
+            label: "High Temperature",
+            data: highs,
+            backgroundColor: ["rgba(255, 0, 0, 0)"],
+            borderColor: ["rgba(255, 0, 0, 1)"],
+            borderWidth: 2
+          },
+          {
+            label: "Low Temperature",
+            data: lows,
+            backgroundColor: ["rgba(0,0,256,0)"],
+            borderColor: ["rgba(0,0,256,1)"],
+            borderWidth: 2
+          }
+        ]
       },
       options: {
         scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero: true
+          yAxes: [
+            {
+              ticks: {
+                beginAtZero: true
+              }
             }
-          }]
+          ]
         }
       }
     });
-
   }
 }
-
-
 
 //Zomato API Call
 function zomatoCall(city) {
@@ -128,7 +140,7 @@ function zomatoCall(city) {
   xhr.open("GET", URL, true);
   xhr.setRequestHeader("user-key", key); //Requirement of API request, setting key as a header after open
 
-  xhr.onload = function () {
+  xhr.onload = function() {
     if (this.status == 200) {
       //If success
       $(".zomato-nightlife").empty();
@@ -150,7 +162,7 @@ function zomatoCall(city) {
       xhr.open("GET", URL, true);
       xhr.setRequestHeader("user-key", key);
 
-      xhr.onload = function () {
+      xhr.onload = function() {
         let cityInfo = JSON.parse(this.responseText);
         console.log(cityInfo);
         //Pushing names of top cuisines to page
@@ -160,35 +172,43 @@ function zomatoCall(city) {
         }
         let nightlifeIndex = Number(cityInfo.nightlife_index);
         let cityPopularity = Number(cityInfo.popularity);
-        $("#food-header").append("<div class='score-box'><div class='popularity-score score-bubble'><h2>" + cityPopularity + "</div></div>");
-        $("#nightlife-header").append("<div class='score-box'><div class='nightlife-score score-bubble'><h2>" + nightlifeIndex + "</div>");
+        $("#food-header").append(
+          "<div class='score-box'><div class='popularity-score score-bubble'><h2>" +
+            cityPopularity +
+            "</div></div>"
+        );
+        $("#nightlife-header").append(
+          "<div class='score-box'><div class='nightlife-score score-bubble'><h2>" +
+            nightlifeIndex +
+            "</div>"
+        );
         //Add color of popularity index
         if (cityPopularity >= 3.5) {
-          $(".popularity-score").addClass("green")
+          $(".popularity-score").addClass("green");
         } else if (cityPopularity > 1.5 && cityPopularity < 3.5) {
-          $(".popularity-score").addClass("yellow")
+          $(".popularity-score").addClass("yellow");
         } else if (cityPopularity < 1.5) {
-          $(".popularity-score").addClass("red")
+          $(".popularity-score").addClass("red");
         }
         //Add color of nightlife index
         if (nightlifeIndex >= 3.5) {
-          $(".nightlife-score").addClass("green")
+          $(".nightlife-score").addClass("green");
         } else if (nightlifeIndex > 1.5 && cityPopularity < 3.5) {
-          $(".nightlife-score").addClass("yellow")
+          $(".nightlife-score").addClass("yellow");
         } else if (nightlifeIndex < 1.5) {
-          $(".nightlife-score").addClass("red")
+          $(".nightlife-score").addClass("red");
         }
         $(".city-submit").on("click", zomatoCall);
         let bestRestaurants = cityInfo.best_rated_restaurant;
         for (let i = 0; i < bestRestaurants.length; i++) {
           $(".zomato-restaurants").append(
             "<div class='img-" +
-            i +
-            " col-md-6 col-xs-12 image-box'><a class='restaurant-title' href='" +
-            bestRestaurants[i].restaurant.url +
-            "'>" +
-            bestRestaurants[i].restaurant.name +
-            "</a></div>"
+              i +
+              " col-md-6 col-xs-12 image-box'><a class='restaurant-title' href='" +
+              bestRestaurants[i].restaurant.url +
+              "'>" +
+              bestRestaurants[i].restaurant.name +
+              "</a></div>"
           );
           if (bestRestaurants[i].restaurant.featured_image === "") {
             $(".img-" + i).append(
@@ -197,8 +217,8 @@ function zomatoCall(city) {
           } else {
             $(".img-" + i).append(
               "<img class='restaurant-img img-thumbnail' src ='" +
-              bestRestaurants[i].restaurant.featured_image +
-              "'>"
+                bestRestaurants[i].restaurant.featured_image +
+                "'>"
             );
           }
         }
@@ -242,8 +262,8 @@ function initMap() {
   console.log(searchBox);
 
   // to change event on search box
-  google.maps.event.addListener(searchBox, "places_changed", function () {
-    $('#main-content').css('display','block');
+  google.maps.event.addListener(searchBox, "places_changed", function() {
+    $("#main-content").css("display", "block");
     var places = searchBox.getPlaces();
     //bound
     var bounds = new google.maps.LatLngBounds();
@@ -259,15 +279,17 @@ function initMap() {
       var lng1 = places[i].geometry.location.lng();
       console.log(lng1);
       var cityName = places[i].name;
-      console.log(cityName);
       $(".city").text(cityName);
       //info window
-      var contentString = '<div id="content">' +
-        '<h6>Latitude =' + lat1 + '</h6><br>' +
-        '<h6>Longitude  =' + lng1 + '</h6>' +
-
-
-        '</div>';
+      var contentString =
+        '<div id="content">' +
+        "<h6>Latitude =" +
+        lat1 +
+        "</h6><br>" +
+        "<h6>Longitude  =" +
+        lng1 +
+        "</h6>" +
+        "</div>";
 
       var infowindow = new google.maps.InfoWindow({
         content: contentString
@@ -275,10 +297,10 @@ function initMap() {
 
       // Add the circle for this city to the map.
       var cityCircle = new google.maps.Circle({
-        strokeColor: '#FF0000',
+        strokeColor: "#FF0000",
         strokeOpacity: 0.8,
         strokeWeight: 2,
-        fillColor: '#FF0000',
+        fillColor: "#FF0000",
         fillOpacity: 0.35,
         map: map,
         center: { lat: lat1, lng: lng1 },
@@ -286,12 +308,12 @@ function initMap() {
       });
       console.log("cityCircle =   " + cityCircle);
 
-
-      marker.addListener('click', function () {
+      marker.addListener("click", function() {
         infowindow.open(map, marker);
       });
       zomatoCall(cityName);
       weatherCall(lat1, lng1);
+      console.log(cityName);
       breweryCall(cityName);
     }
     //fit to the bound
@@ -302,4 +324,4 @@ function initMap() {
 }
 
 //Google map API ended
-   //Google map API ended
+//Google map API ended

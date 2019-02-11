@@ -10,10 +10,6 @@ background: url(../images/background.jpg) no-repeat center center fixed;
     display:none;
 }
 
-.container {
-    margin: 0px;
-}
-
 #jumbo-header {
     text-align: center;
 }
@@ -40,17 +36,15 @@ background: url(../images/background.jpg) no-repeat center center fixed;
     margin-top: 30px;
 }
 
-.restaurant-img {
-    width: 350px;
-    height: 200px;
-}
-
 .image-box {
     text-align: center;
 }
 
 .restaurant-title {
     font-size: 18px;
+    text-decoration-line: underline;
+    color: black;
+    font-weight: bold;
 }
 
 .score-box {
@@ -103,6 +97,7 @@ background: url(../images/background.jpg) no-repeat center center fixed;
 }
 
 #map {
+    border-radius: 5px;
     z-index: 3;
     height: 100%;
     width: 100%;
@@ -150,6 +145,10 @@ background: url(../images/background.jpg) no-repeat center center fixed;
 
     #map{
         height:300px;
+    }
+
+    #weather{
+        margin-top:30px;
     }
 
     }

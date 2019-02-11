@@ -12,7 +12,7 @@ function breweryCall(city) {
     var results = response.data;
     for (let i = 0; i < response.length; i++) {
       console.log(response[i].name)
-      $(".brewery").append("<p>" + response[i].name);
+      $(".brewery").append("<p>" + response[i].name</p>);
     }
 
   });

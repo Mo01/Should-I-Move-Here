@@ -12,6 +12,7 @@ function breweryCall(city) {
     var results = response.data;
     for (let i = 0; i < response.length; i++) {
       console.log(response[i].name)
+      $(".brewery").append("<p>" + response[i].name</p>);
     }
 
   });
@@ -260,6 +261,7 @@ function initMap() {
       console.log(lng1);
       var cityName = places[i].name;
       console.log(cityName);
+      $(".city").text(cityName);
       //info window
       var contentString = '<div id="content">' +
         '<h6>Latitude =' + lat1 + '</h6><br>' +

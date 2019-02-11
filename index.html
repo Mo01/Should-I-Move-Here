@@ -7,8 +7,8 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <link rel="stylesheet" href="assets/css/style.css" />
   <title>Should I Move To...</title>
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
+    crossorigin="anonymous">
 </head>
 
 <body>
@@ -34,7 +34,7 @@
 
         <div class="card">
           <div class="card-header">
-            <h2>Average Weather</h2>
+            <h2>Average Weather in <span class="city"></span></h2>
           </div>
           <div class="card-body">
             <canvas id="tempChart"></canvas>
@@ -59,9 +59,9 @@
 
         <div class="card">
           <div class="card-header" id="food-header">
-            <h2>Food</h2>
+            <h2><span class="city"></span> Food </h2>
           </div>
-          <div class="card-body zomato-top-cuisines">
+          <div class="card-body">
 
           </div>
         </div>
@@ -73,8 +73,8 @@
       <div class="col-md-6">
 
         <div class="card">
-          <div class="card-header" id="nightlife-header">
-            <h2>Nightlife</h2>
+          <div class="card-header" class="nightlife-header">
+            <h2><span class="city"></span> Nightlife </h2>
           </div>
           <div class="card-body zomato-nightlife">
 
@@ -85,22 +85,31 @@
       <div class="col-md-6 restaurants-section">
         <div class="card">
           <div class="card-header">
-            <h2>Best Rated Restaurants</h2>
+            <h2>Best Rated <span class="city"></span> Restaurants</h2>
           </div>
           <div class="card-body zomato-restaurants row">
 
           </div>
         </div>
       </div>
+      <div class="col-md-6 brewery-section brewery-header">
+        <div class="card">
+          <div class="card-header ">
+            <h2>Local <span class="city"></span> Breweries</h2>
+          </div>
+          <div class="card-body brewery row">
+
+          </div>
+        </div>
+      </div>
     </div>
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js"
-      integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+      crossorigin="anonymous"></script>
     <!-- Chart.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
     <!--Google API map-->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs5IvD5ky49g5YXR80uLMUtm-p86ulSXY&callback=initMap&libraries=places"
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs5IvD5ky49g5YXR80uLMUtm-p86ulSXY&callback=initMap&libraries=places"
       async defer></script>
     <script src="assets/javascript/project.js"></script>
 </body>

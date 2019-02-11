@@ -100,3 +100,7 @@ body {
     top: 0px;
     touch-action: pan-x pan-y;
 }
+.brewery-header{
+    margin-top: 30px;
+    
+}

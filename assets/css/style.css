@@ -54,11 +54,17 @@ body {
     border-radius: 50%;
     display: flex;
     justify-content: center;
+    margin:0 auto;
 }
 
 .restaurants-section {
     margin-top: 30px;
 }
+
+.score-card{
+    text-align:center;
+}
+
 
 .green {
     background-color: green;

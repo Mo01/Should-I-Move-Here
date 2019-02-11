@@ -119,8 +119,7 @@ function weatherCall(lat, long) {
 
 //Zomato API Call
 function zomatoCall(city) {
-  $(".zomato-nightlife").empty();
-  $(".zomato-top-cuisines").empty();
+  $(".score-box").empty();
   let query = city;
   let URL = "https://developers.zomato.com/api/v2.1/locations?query=" + query;
   let key = "c7026f9c7b7d563d6a029354b3f03a9a";
@@ -161,7 +160,7 @@ function zomatoCall(city) {
         }
         let nightlifeIndex = Number(cityInfo.nightlife_index);
         let cityPopularity = Number(cityInfo.popularity);
-        $("#food-header").append("<div class='popularity-score score-bubble'><h2>" + cityPopularity + "</div></div>");
+        $("#food-header").append("<div class='score-box'><div class='popularity-score score-bubble'><h2>" + cityPopularity + "</div></div>");
         $("#nightlife-header").append("<div class='score-box'><div class='nightlife-score score-bubble'><h2>" + nightlifeIndex + "</div>");
         //Add color of popularity index
         if (cityPopularity >= 3.5) {

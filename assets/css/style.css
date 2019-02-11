@@ -1,14 +1,25 @@
 body {
-    background: url('../images/giphy.gif') no-repeat center center fixed;
-    height: 100vh;
+background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
-.container {
-    margin: 0px;
+p > i {
+    font-size: 15px;
+}
+
+#main-content{
+    display:none;
 }
 
 #jumbo-header {
     text-align: center;
+}
+
+.display-4{
+    font-weight: 500;
 }
 
 #city-input {
@@ -29,17 +40,24 @@ body {
     margin-top: 30px;
 }
 
-.restaurant-img {
-    width: 350px;
-    height: 200px;
-}
-
 .image-box {
     text-align: center;
+    margin-bottom:20px;
+}
+
+.image-box > p {
+    margin-bottom:0px;
 }
 
 .restaurant-title {
     font-size: 18px;
+    text-decoration-line: underline;
+    color: black;
+    font-weight: bold;
+}
+
+.restaurant-img{
+    margin-top:6px;
 }
 
 .score-box {
@@ -54,22 +72,28 @@ body {
     border-radius: 50%;
     display: flex;
     justify-content: center;
+    margin:0 auto;
 }
 
 .restaurants-section {
     margin-top: 30px;
 }
 
+.score-card{
+    text-align:center;
+}
+
+
 .green {
     background-color: green;
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: #d8d814;
 }
 
 .red {
-    background-color: red;
+    background-color: #cc1c1c;
 }
 
 .score-titles {
@@ -85,11 +109,8 @@ body {
     width: 67px;
 }
 
-#blank-img {
-    height: 146.66px;
-}
-
 #map {
+    border-radius: 5px;
     z-index: 3;
     height: 100%;
     width: 100%;
@@ -104,3 +125,43 @@ body {
     margin-top: 30px;
     
 }
+
+/* Media queries */
+
+@media only screen and (max-width : 400px) {
+    .nightlife-card{
+        margin-top: 30px;
+    }
+
+    #city-input{
+        width:88%;
+    }
+
+    .zomato-row{
+        display:flex;
+    }
+
+    .food-score-col{
+        order:0;
+    }
+
+    .restaurants-section{
+        order:1;
+    } 
+
+    .nightlife-score-col{
+        order:2;
+    }
+    .brewery-section{
+        order:3;
+    }
+
+    #map{
+        height:300px;
+    }
+
+    #weather{
+        margin-top:30px;
+    }
+
+    }

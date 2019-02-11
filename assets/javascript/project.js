@@ -193,7 +193,7 @@ function zomatoCall(city) {
         //Add color of nightlife index
         if (nightlifeIndex >= 3.5) {
           $(".nightlife-score").addClass("green");
-        } else if (nightlifeIndex > 1.5 && cityPopularity < 3.5) {
+        } else if (nightlifeIndex > 1.5 && nightlifeIndex < 3.5) {
           $(".nightlife-score").addClass("yellow");
         } else if (nightlifeIndex < 1.5) {
           $(".nightlife-score").addClass("red");

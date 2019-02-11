@@ -36,7 +36,7 @@ function weatherCall(lat, long) {
     var queryDate = lastYear + "-" + month + "-15" + "T12:00:00";
     var queryURL =
       "https://api.darksky.net/forecast/" +
-      colinkey +
+      key +
       "/" +
       latitude +
       "," +
@@ -210,6 +210,20 @@ function zomatoCall(city) {
               bestRestaurants[i].restaurant.name +
               "</a></div>"
           );
+          console.log(bestRestaurants[i].restaurant.price_range)
+          let priceRange = bestRestaurants[i].restaurant.price_range;
+          let cuisines = bestRestaurants[i].restaurant.cuisines;
+          $(".img-" + i).append("<p class='par-"+ i +"'><i class='fas fa-star' aria-hidden='true'></i>" + bestRestaurants[i].restaurant.user_rating.aggregate_rating + "</p>");
+          if(priceRange === 1){
+            $(".img-" + i).append(cuisines + " | <i class='fas fa-dollar-sign'></i>")
+          } else if(priceRange === 2){
+            $(".img-" + i).append(cuisines + " | <i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i>")
+          } else if (priceRange === 3){
+            $(".img-" + i).append(cuisines + " | <i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i>")
+          } else if (priceRange === 4){
+            $(".img-" + i).append(cuisines + " | <i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i>")
+          }
+          //For blank img, append default img. for filled ones, append image URL
           if (bestRestaurants[i].restaurant.featured_image === "") {
             $(".img-" + i).append(
               "<img class='restaurant-img img-thumbnail' src='assets/images/noimg.png'>"

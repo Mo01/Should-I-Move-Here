@@ -6,6 +6,10 @@ background: url(../images/background.jpg) no-repeat center center fixed;
   background-size: cover;
 }
 
+p > i {
+    font-size: 15px;
+}
+
 #main-content{
     display:none;
 }
@@ -38,6 +42,11 @@ background: url(../images/background.jpg) no-repeat center center fixed;
 
 .image-box {
     text-align: center;
+    margin-bottom:20px;
+}
+
+.image-box > p {
+    margin-bottom:0px;
 }
 
 .restaurant-title {
@@ -45,6 +54,10 @@ background: url(../images/background.jpg) no-repeat center center fixed;
     text-decoration-line: underline;
     color: black;
     font-weight: bold;
+}
+
+.restaurant-img{
+    margin-top:6px;
 }
 
 .score-box {

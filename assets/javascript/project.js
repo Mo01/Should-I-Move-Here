@@ -1,5 +1,6 @@
 //Brewery Call
 function breweryCall(city) {
+  $(".brewery").empty();
 
   var queryURL =
     "https://api.openbrewerydb.org/breweries?&by_city=" + city;
@@ -11,8 +12,9 @@ function breweryCall(city) {
   }).then(function (response) {
     var results = response.data;
     for (let i = 0; i < response.length; i++) {
-      console.log(response[i].name)
-      $(".brewery").append("<p>" + response[i].name);
+      console.log(`brewery json name ${response[i].name}`)
+      console.log(`brewery json website ${response[i].website_url}`)
+      $(".brewery").append("<p><li><a href='" + response[i].website_url + "' target='_blank'>" + response[i].name + "</a></li></p> ");
     }
 
   });
@@ -22,7 +24,7 @@ function breweryCall(city) {
 function weatherCall(lat, long) {
   var tempsArray = [];
   var key = "cd768e4e7c686a1539e5422b289fe5ee";
-  //var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26"
+  //var clkey = "5362525d5bdad9fb24c68f96bf2e2f26"
   var latitude = lat.toString();
   var longitude = long.toString();
   var date = new Date();
@@ -162,7 +164,7 @@ function zomatoCall(city) {
         let nightlifeIndex = Number(cityInfo.nightlife_index);
         let cityPopularity = Number(cityInfo.popularity);
         $("#food-header").append("<div class='popularity-score score-bubble'><h2>" + cityPopularity + "</div></div>");
-        $("#nightlife-header").append("<div class='score-box'><div class='nightlife-score score-bubble'><h2>" + nightlifeIndex + "</div>");
+        $(".nightlife-header").append("<div class='score-box'><div class='nightlife-score score-bubble'><h2>" + nightlifeIndex + "</div>");
         //Add color of popularity index
         if (cityPopularity >= 3.5) {
           $(".popularity-score").addClass("green")

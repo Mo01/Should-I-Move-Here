@@ -184,7 +184,7 @@ function zomatoCall(city) {
           $(".zomato-restaurants").append(
             "<div class='img-" +
             i +
-            " col-md-4 col-xs-6 image-box'><a class='restaurant-title' href='" +
+            " col-md-6 col-xs-12 image-box'><a class='restaurant-title' href='" +
             bestRestaurants[i].restaurant.url +
             "'>" +
             bestRestaurants[i].restaurant.name +
@@ -192,7 +192,7 @@ function zomatoCall(city) {
           );
           if (bestRestaurants[i].restaurant.featured_image === "") {
             $(".img-" + i).append(
-              "<img id='blank-img' class='restaurant-img img-thumbnail' src='assets/images/noimg.png'>"
+              "<img class='restaurant-img img-thumbnail' src='assets/images/noimg.png'>"
             );
           } else {
             $(".img-" + i).append(

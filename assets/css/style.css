@@ -102,10 +102,6 @@ background: url(../images/background.jpg) no-repeat center center fixed;
     width: 67px;
 }
 
-#blank-img {
-    height: 146.66px;
-}
-
 #map {
     z-index: 3;
     height: 100%;
@@ -121,3 +117,35 @@ background: url(../images/background.jpg) no-repeat center center fixed;
     margin-top: 30px;
     
 }
+
+/* Media queries */
+
+@media only screen and (max-width : 400px) {
+    .nightlife-card{
+        margin-top: 30px;
+    }
+
+    #city-input{
+        width:88%;
+    }
+
+    .zomato-row{
+        display:flex;
+    }
+
+    .food-score-col{
+        order:0;
+    }
+
+    .restaurants-section{
+        order:1;
+    } 
+
+    .nightlife-score-col{
+        order:2;
+    }
+    .brewery-section{
+        order:3;
+    }
+
+    }

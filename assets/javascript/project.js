@@ -36,7 +36,7 @@ function weatherCall(lat, long) {
     var queryDate = lastYear + "-" + month + "-15" + "T12:00:00";
     var queryURL =
       "https://api.darksky.net/forecast/" +
-      key +
+      colinkey +
       "/" +
       latitude +
       "," +

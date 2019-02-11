@@ -1,6 +1,9 @@
 body {
-    background: url('../images/giphy.gif') no-repeat center center fixed;
-    height: 100vh;
+background: url(../images/background.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #main-content{
@@ -13,6 +16,10 @@ body {
 
 #jumbo-header {
     text-align: center;
+}
+
+.display-4{
+    font-weight: 500;
 }
 
 #city-input {

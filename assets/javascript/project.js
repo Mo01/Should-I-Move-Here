@@ -21,8 +21,8 @@ function breweryCall(city) {
 // Weather Call
 function weatherCall(lat, long) {
   var tempsArray = [];
-  var key = "cd768e4e7c686a1539e5422b289fe5ee";
-  //var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26"
+  //var key = "cd768e4e7c686a1539e5422b289fe5ee";
+  var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26"
   var latitude = lat.toString();
   var longitude = long.toString();
   var date = new Date();

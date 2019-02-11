@@ -148,4 +148,8 @@ background: url(../images/background.jpg) no-repeat center center fixed;
         order:3;
     }
 
+    #map{
+        height:300px;
+    }
+
     }

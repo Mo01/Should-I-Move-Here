@@ -1,8 +1,6 @@
 //Brewery Call
 function breweryCall(city) {
-  console.log("calling brew");
   var queryURL = "https://api.openbrewerydb.org/breweries?&by_city=" + city;
-  console.log(queryURL);
 
   $.ajax({
     url: queryURL,
@@ -10,7 +8,6 @@ function breweryCall(city) {
   }).then(function(response) {
     var results = response.data;
     for (let i = 0; i < response.length; i++) {
-      console.log(response[i].name);
       $(".brewery").append("<p>" + response[i].name + "</p>");
     }
   });
@@ -243,9 +240,6 @@ function zomatoCall(city) {
   xhr.send();
 }
 
-//Click listeners
-
-//*****************************************************************//
 
 //Google Map API
 
@@ -277,11 +271,23 @@ function initMap() {
 
   // to change event on search box
   google.maps.event.addListener(searchBox, "places_changed", function() {
-    $("#main-content").css("display", "block");
+    $('.modal').css('display','none');//Hide modal if user makes a search
+    $("#main-content").css("display", "none");
     var places = searchBox.getPlaces();
+    console.log(places.length)
+    //Display error message if there are no places found
+    if(places.length < 1){
+      $('.modal').css('display','block');
+      $('.dismiss').on("click", function(){
+        $('.modal').css('display','none');
+      })
+    } else{
+      $("#main-content").css("display", "block");
+    }
     //bound
     var bounds = new google.maps.LatLngBounds();
     var i, place;
+    console.log(place)
     for (i = 0; (place = places[i]); i++) {
       bounds.extend(place.geometry.location);
       //set marker postion new....

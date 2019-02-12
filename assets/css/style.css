@@ -14,8 +14,17 @@ p > i {
     display:none;
 }
 
+.jumbotron {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
 #jumbo-header {
     text-align: center;
+}
+
+.modal{
+    top:300px;
 }
 
 .display-4{

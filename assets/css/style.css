@@ -1,6 +1,12 @@
 body {
-    background: url('../images/giphy.gif') no-repeat center center fixed;
+/* i changed this disregard */
+    background: url('../images/giphy.gif');
     height: 100vh;
+
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 .container {
@@ -103,4 +109,17 @@ body {
 .brewery-header{
     margin-top: 30px;
     
+}
+
+
+.brewery-photo {
+    /*width:40rem;*/
+    max-width:90%;
+    height:auto;
+    margin-left:auto;
+    margin-right:auto;
+}
+.brewery-title {
+    display:inline-block;
+    width:100%;
 }

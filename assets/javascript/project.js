@@ -1,7 +1,16 @@
 //Brewery Call
 function breweryCall(city) {
   $(".brewery").empty();
+  var beerArray = ["assets/images/beer/beer-1.jpeg", "assets/images/beer/beer-2.jpeg", "assets/images/beer/beer-3.jpeg", "assets/images/beer/beer-4.jpeg", "assets/images/beer/beer-5.jpeg", "assets/images/beer/beer-6.jpeg"];
+  var beerImage1 = "assets/images/beer/beer-1.jpeg";
+  var beerImage2 = "assets/images/beer/beer-2.jpeg";
+  var beerImage3 = "assets/images/beer/beer-3.jpeg";
+  var beerImage4 = "assets/images/beer/beer-4.jpeg";
 
+  // var beer1 = "<img class='beerImg' src='" + beerImage1 + "' width='400px'/>";
+  // var beerImage2 = "assets/images/beer/beer-2.jpeg";
+  // var beerImage3 = "assets/images/beer/beer-3.jpeg";
+  // var beerImage4 = "assets/images/beer/beer-4.jpeg";
   var queryURL =
     "https://api.openbrewerydb.org/breweries?&by_city=" + city;
   console.log(queryURL);
@@ -10,15 +19,30 @@ function breweryCall(city) {
     url: queryURL,
     method: "GET"
   }).then(function (response) {
+    console.log('in response');
     var results = response.data;
+    /*
+        $(".beer-image-1").append("<img class='beerImg' src='" + beerImage1 + "' width='100px'/>" + "<img class='beerImg'src='" + beerImage2 + "' width='100px'/>" + "<img class='beerImg'src='" + beerImage3 + "' width='100px'/>" + "<img class='beerImg'src='" + beerImage4 + "' width='100px'/>");
+    */
+
+    //more compact
+    $(".beer-image-2").append(beer1);
     for (let i = 0; i < response.length; i++) {
+
       console.log(`brewery json name ${response[i].name}`)
       console.log(`brewery json website ${response[i].website_url}`)
-      $(".brewery").append("<p><li><a href='" + response[i].website_url + "' target='_blank'>" + response[i].name + "</a></li></p> ");
+      // $(".brewery").append("<div style='width:100%;'><img class='brewery-photo' src='" + beerImage1 + "' />"
+      $(".brewery").append("<div class='brewery-title'><a href='" + response[i].website_url + "' target='_blank'>" + response[i].name + "</a></div>");
+      console.log('i: ' + i)
+      if ((i + 1) % 5 == 0 && i > 0) {
+        console.log('doing image')
+        $(".brewery").append("<div style='width:100%;'><img class='brewery-photo' src='" + beerImage1 + "' /></div>");
+      }
     }
+  })
+};
+// $(".brewery").append("<span class='brewery-photo'><img src='/assets/images/beer/beer-1.jpeg' width='4rem';/></span><p class='brewery-title'><a href='" + response[i].website_url + "' target='_blank'>" + response[i].name + "</a></p>");
 
-  });
-}
 
 // Weather Call
 function weatherCall(lat, long) {

@@ -7,7 +7,7 @@ function breweryCall(city) {
   var beerImage3 = "assets/images/beer/beer-3.jpeg";
   var beerImage4 = "assets/images/beer/beer-4.jpeg";
 
-  // var beer1 = "<img class='beerImg' src='" + beerImage1 + "' width='400px'/>";
+  var beer1 = "<img class='beerImg' src='" + beerImage1 + "' width='400px'/>";
   // var beerImage2 = "assets/images/beer/beer-2.jpeg";
   // var beerImage3 = "assets/images/beer/beer-3.jpeg";
   // var beerImage4 = "assets/images/beer/beer-4.jpeg";

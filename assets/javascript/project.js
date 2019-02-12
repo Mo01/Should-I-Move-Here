@@ -1,4 +1,4 @@
-//Brewery Call
+//Brewery API Call
 function breweryCall(city) {
   var queryURL = "https://api.openbrewerydb.org/breweries?&by_city=" + city;
 
@@ -241,7 +241,7 @@ function zomatoCall(city) {
 }
 
 
-//Google Map API
+//Google Map API Call
 
 function initMap() {
   var myLatLng = { lat: 30.2672, lng: -97.7431 };
@@ -342,6 +342,3 @@ function initMap() {
     map.setZoom(11);
   });
 }
-
-//Google map API ended
-//Google map API ended

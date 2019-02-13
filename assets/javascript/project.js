@@ -1,14 +1,9 @@
 //Brewery Call
 
-$('.card').hide();
-
-
-
 function breweryCall(city) {
   // clears the brewery append area between calls
   $(".brewery").empty();
   // shows hidden brewery ifnpo upon first call.
-  $('.card').show();
   var beerArray = [
     "assets/images/beer/beer-1.jpeg",
     "assets/images/beer/beer-2.jpeg",
@@ -50,9 +45,10 @@ function breweryCall(city) {
 // Weather Call
 function weatherCall(lat, long) {
   var tempsArray = [];
-  var key = "cd768e4e7c686a1539e5422b289fe5ee";
+  //var key = "cd768e4e7c686a1539e5422b289fe5ee";
 
-  //var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26";
+  var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26";
+  var lucaskey = "da7cb61ebdaffcc1030d0621495a874d"
   var latitude = lat.toString();
   var longitude = long.toString();
   var date = new Date();
@@ -68,7 +64,7 @@ function weatherCall(lat, long) {
     var queryDate = lastYear + "-" + month + "-15" + "T12:00:00";
     var queryURL =
       "https://api.darksky.net/forecast/" +
-      key +
+      lucaskey +
       "/" +
       latitude +
       "," +
@@ -175,20 +171,19 @@ function zomatoCall(city) {
   //Declaring and opening an XHR
   let xhr = new XMLHttpRequest();
   xhr.open("GET", URL, true);
-  xhr.setRequestHeader("user-key", key); //Requirement of API request, setting key as a header after open
+  xhr.setRequestHeader("user-key", key); 
 
   xhr.onload = function () {
     if (this.status == 200) {
-      //If success
+      //If successful call, clear page and send request
       $(".zomato-nightlife").empty();
       $(".zomato-top-cuisines").empty();
       $(".zomato-restaurants").empty();
-      let location = JSON.parse(this.responseText); //Parsing response text into JSON object
-      let entityId = location.location_suggestions[0].entity_id; //Sets ID of city
-      let type = location.location_suggestions[0].entity_type; //Specifies that request is for a city
+      let location = JSON.parse(this.responseText); 
+      let entityId = location.location_suggestions[0].entity_id; 
+      let type = location.location_suggestions[0].entity_type;
       console.log(location);
 
-      //Second request, to take city info and perform request for additional info on city
       let URL =
         "https://developers.zomato.com/api/v2.1/location_details?entity_id=" +
         entityId +
@@ -202,11 +197,7 @@ function zomatoCall(city) {
       xhr.onload = function () {
         let cityInfo = JSON.parse(this.responseText);
         console.log(cityInfo);
-        //Pushing names of top cuisines to page
-        let topCuisines = cityInfo.top_cuisines;
-        for (let i = 0; i < topCuisines.length; i++) {
-          $(".zomato-top-cuisines").append("<p>" + topCuisines[i]);
-        }
+        //Adding popularity and nightlife scores
         let nightlifeIndex = Number(cityInfo.nightlife_index);
         let cityPopularity = Number(cityInfo.popularity);
         $("#food-header").append(
@@ -219,7 +210,7 @@ function zomatoCall(city) {
           nightlifeIndex +
           "</div>"
         );
-        //Add color of popularity index
+        //Add color of popularity and nightlife index
         if (cityPopularity >= 3.5) {
           $(".popularity-score").addClass("green");
         } else if (cityPopularity > 1.5 && cityPopularity < 3.5) {
@@ -227,7 +218,7 @@ function zomatoCall(city) {
         } else if (cityPopularity < 1.5) {
           $(".popularity-score").addClass("red");
         }
-        //Add color of nightlife index
+
         if (nightlifeIndex >= 3.5) {
           $(".nightlife-score").addClass("green");
         } else if (nightlifeIndex > 1.5 && nightlifeIndex < 3.5) {
@@ -235,7 +226,6 @@ function zomatoCall(city) {
         } else if (nightlifeIndex < 1.5) {
           $(".nightlife-score").addClass("red");
         }
-        $(".city-submit").on("click", zomatoCall);
         let bestRestaurants = cityInfo.best_rated_restaurant;
         for (let i = 0; i < bestRestaurants.length; i++) {
           $(".zomato-restaurants").append(

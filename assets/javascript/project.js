@@ -1,17 +1,51 @@
-//Brewery API Call
+//Brewery Call
+
+$('.card').hide();
+
+
+
 function breweryCall(city) {
-  var queryURL = "https://api.openbrewerydb.org/breweries?&by_city=" + city;
+  // clears the brewery append area between calls
+  $(".brewery").empty();
+  // shows hidden brewery ifnpo upon first call.
+  $('.card').show();
+  var beerArray = [
+    "assets/images/beer/beer-1.jpeg",
+    "assets/images/beer/beer-2.jpeg",
+    "assets/images/beer/beer-3.jpeg",
+    "assets/images/beer/beer-4.jpeg",
+    "assets/images/beer/beer-5.jpeg",
+    "assets/images/beer/beer-6.jpeg",
+  ];
+  // randomBeer chooses a random beer position
+  randomBeer = Math.floor(Math.random() * beerArray.length);
+  console.log(`randombeer :${randomBeer}`);
+  // brewery api
+  var queryURL =
+    "https://api.openbrewerydb.org/breweries?&by_city=" + city;
+  console.log(queryURL);
 
   $.ajax({
     url: queryURL,
     method: "GET"
   }).then(function (response) {
+    console.log('in response');
     var results = response.data;
+    //for loop creating the json responses.
     for (let i = 0; i < response.length; i++) {
-      $(".brewery").append("<p>" + response[i].name + "</p>");
+      $(".beer-image-2").append(randomBeer);
+      console.log(`brewery json name ${response[i].name}`)
+      console.log(`brewery json website ${response[i].website_url}`)
+      //dynamically pushing html of the brewery list urls.
+      $(".brewery").append("<div class='brewery-title'><a href='" + response[i].website_url + "' target='_blank'>" + response[i].name + "</a></div>");
+      console.log('i: ' + i)
+      //the if statement puts a picture every 5 brewery list items that loops through the array of pictures. 
+      if ((i + 1) % 5 == 0 && i > 0) {
+        $(".brewery").append("<div style='width:100%;'><img class='brewery-photo img-thumbnail' src='" + beerArray[(randomBeer + Math.floor((i + 1) / 5)) % beerArray.length] + "' /></div>");
+      }
     }
-  });
-}
+  })
+};
 
 // Weather Call
 function weatherCall(lat, long) {
@@ -283,11 +317,13 @@ function initMap() {
     //Display error message if there are no places found
     if(places.length < 1){
       $('.modal').css('display','block');
+      $('.overlay').css('height','100%');
       $('.dismiss').on("click", function(){
         $('.modal').css('display','none');
       })
     } else{
       $("#main-content").css("display", "block");
+      $('.overlay').css('height','100%');
     }
     //bound
     var bounds = new google.maps.LatLngBounds();

@@ -317,11 +317,13 @@ function initMap() {
     //Display error message if there are no places found
     if(places.length < 1){
       $('.modal').css('display','block');
+      $('.overlay').css('height','100%');
       $('.dismiss').on("click", function(){
         $('.modal').css('display','none');
       })
     } else{
       $("#main-content").css("display", "block");
+      $('.overlay').css('height','100%');
     }
     //bound
     var bounds = new google.maps.LatLngBounds();

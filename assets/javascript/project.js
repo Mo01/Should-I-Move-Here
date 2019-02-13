@@ -1,14 +1,9 @@
 //Brewery Call
 
-$('.card').hide();
-
-
-
 function breweryCall(city) {
   // clears the brewery append area between calls
   $(".brewery").empty();
   // shows hidden brewery ifnpo upon first call.
-  $('.card').show();
   var beerArray = [
     "assets/images/beer/beer-1.jpeg",
     "assets/images/beer/beer-2.jpeg",

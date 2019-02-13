@@ -336,6 +336,7 @@ function initMap() {
       })
     } else {
       $("#main-content").css("display", "block");
+      $('.overlay').css('height','100%');
     }
     //bound
     var bounds = new google.maps.LatLngBounds();

@@ -330,12 +330,12 @@ function initMap() {
 
     if(places.length < 1){
       $('.modal').css('display','block');
+      $('.overlay').css('height','100vh');
       $('.dismiss').on("click", function(){
         $('.modal').css('display','none');
       })
     } else {
       $("#main-content").css("display", "block");
-      $('.overlay').css('height','100%');
     }
     //bound
     var bounds = new google.maps.LatLngBounds();

@@ -129,7 +129,7 @@ p>i {
 }
 
 .modal {
-    top: 300px;
+    top: 330px;
 }
 
 .dismiss {
@@ -283,7 +283,7 @@ p>i {
     .nightlife-card {
         margin-top: 30px;
     }
-    #city-input {
+    .city-input {
         width: 88%;
     }
     .zomato-row {

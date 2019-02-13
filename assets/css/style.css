@@ -1,5 +1,5 @@
 body {
-background: url(../images/background.jpg) no-repeat center center fixed; 
+  background: url(../images/background.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -18,6 +18,7 @@ p > i {
 .jumbotron {
     border-bottom-left-radius: 6px;
     border-bottom-right-radius: 6px;
+    background-color: rgba(72, 72, 72, 0.4);
 }
 
 #jumbo-header {
@@ -35,12 +36,30 @@ p > i {
 
 .display-4{
     font-weight: 500;
+    color:white;
+}
+
+.lead {
+    color:white;
 }
 
 #city-input {
     width: 30%;
     height: 40px;
     padding-left: 4px;
+    border-radius: 4px;
+    background-color: #636363;
+    border: 0px solid white;
+    opacity: .8;
+    color: white;
+        -moz-box-shadow:    inset 0 0 10px #000000;
+        -webkit-box-shadow: inset 0 0 10px #000000;
+        box-shadow:         inset 0 0 10px #000000;
+}
+
+::placeholder{
+    color:white;
+    opacity:1;
 }
 
 #top-row {
@@ -104,6 +123,10 @@ p > i {
 
 .score-card{
     text-align:center;
+}
+
+.card{
+    background-color: rgba(255, 255, 255, 0.9);
 }
 
 

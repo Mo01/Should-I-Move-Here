@@ -5,7 +5,7 @@ function breweryCall(city) {
   $.ajax({
     url: queryURL,
     method: "GET"
-  }).then(function(response) {
+  }).then(function (response) {
     var results = response.data;
     for (let i = 0; i < response.length; i++) {
       $(".brewery").append("<p>" + response[i].name + "</p>");
@@ -46,7 +46,7 @@ function weatherCall(lat, long) {
       url: queryURL,
       crossDomain: true,
       dataType: "jsonp",
-      success: function(response) {
+      success: function (response) {
         callCounter++;
         console.log("callCounter", callCounter);
         var monthObject = {
@@ -63,7 +63,8 @@ function weatherCall(lat, long) {
   }
 
   function onDataReceived() {
-    tempsArray.sort(function(a, b) {
+
+    tempsArray.sort(function (a, b) {
       return a.time - b.time;
     });
     createWeatherChart(tempsArray);
@@ -76,6 +77,10 @@ function weatherCall(lat, long) {
       highs.push(tempArray[i].tempHigh);
       lows.push(tempArray[i].tempLow);
     }
+    var chartContainer = $("#temp-chart-card");
+    chartContainer.html("");
+    var canvas = $("<canvas>").attr("id", "tempChart");
+    chartContainer.append(canvas);
     var ctx = document.getElementById("tempChart").getContext("2d");
     var myChart = new Chart(ctx, {
       type: "line",
@@ -137,7 +142,7 @@ function zomatoCall(city) {
   xhr.open("GET", URL, true);
   xhr.setRequestHeader("user-key", key); //Requirement of API request, setting key as a header after open
 
-  xhr.onload = function() {
+  xhr.onload = function () {
     if (this.status == 200) {
       //If success
       $(".zomato-nightlife").empty();
@@ -159,7 +164,7 @@ function zomatoCall(city) {
       xhr.open("GET", URL, true);
       xhr.setRequestHeader("user-key", key);
 
-      xhr.onload = function() {
+      xhr.onload = function () {
         let cityInfo = JSON.parse(this.responseText);
         console.log(cityInfo);
         //Pushing names of top cuisines to page
@@ -171,13 +176,13 @@ function zomatoCall(city) {
         let cityPopularity = Number(cityInfo.popularity);
         $("#food-header").append(
           "<div class='score-box'><div class='popularity-score score-bubble'><h2>" +
-            cityPopularity +
-            "</div></div>"
+          cityPopularity +
+          "</div></div>"
         );
         $("#nightlife-header").append(
           "<div class='score-box'><div class='nightlife-score score-bubble'><h2>" +
-            nightlifeIndex +
-            "</div>"
+          nightlifeIndex +
+          "</div>"
         );
         //Add color of popularity index
         if (cityPopularity >= 3.5) {
@@ -200,24 +205,24 @@ function zomatoCall(city) {
         for (let i = 0; i < bestRestaurants.length; i++) {
           $(".zomato-restaurants").append(
             "<div class='img-" +
-              i +
-              " col-md-6 col-xs-12 image-box'><a class='restaurant-title' href='" +
-              bestRestaurants[i].restaurant.url +
-              "'>" +
-              bestRestaurants[i].restaurant.name +
-              "</a></div>"
+            i +
+            " col-md-6 col-xs-12 image-box'><a class='restaurant-title' href='" +
+            bestRestaurants[i].restaurant.url +
+            "'>" +
+            bestRestaurants[i].restaurant.name +
+            "</a></div>"
           );
           console.log(bestRestaurants[i].restaurant.price_range)
           let priceRange = bestRestaurants[i].restaurant.price_range;
           let cuisines = bestRestaurants[i].restaurant.cuisines;
-          $(".img-" + i).append("<p class='par-"+ i +"'><i class='fas fa-star' aria-hidden='true'></i>" + bestRestaurants[i].restaurant.user_rating.aggregate_rating + "</p>");
-          if(priceRange === 1){
+          $(".img-" + i).append("<p class='par-" + i + "'><i class='fas fa-star' aria-hidden='true'></i>" + bestRestaurants[i].restaurant.user_rating.aggregate_rating + "</p>");
+          if (priceRange === 1) {
             $(".img-" + i).append(cuisines + " | <i class='fas fa-dollar-sign'></i>")
-          } else if(priceRange === 2){
+          } else if (priceRange === 2) {
             $(".img-" + i).append(cuisines + " | <i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i>")
-          } else if (priceRange === 3){
+          } else if (priceRange === 3) {
             $(".img-" + i).append(cuisines + " | <i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i>")
-          } else if (priceRange === 4){
+          } else if (priceRange === 4) {
             $(".img-" + i).append(cuisines + " | <i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i><i class='fas fa-dollar-sign'></i>")
           }
           //For blank img, append default img. for filled ones, append image URL
@@ -228,8 +233,8 @@ function zomatoCall(city) {
           } else {
             $(".img-" + i).append(
               "<img class='restaurant-img img-thumbnail' src ='" +
-                bestRestaurants[i].restaurant.featured_image +
-                "'>"
+              bestRestaurants[i].restaurant.featured_image +
+              "'>"
             );
           }
         }
@@ -328,7 +333,7 @@ function initMap() {
       });
       console.log("cityCircle =   " + cityCircle);
 
-      marker.addListener("click", function() {
+      marker.addListener("click", function () {
         infowindow.open(map, marker);
       });
       zomatoCall(cityName);

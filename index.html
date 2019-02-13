@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <title>Should I Move Here</title>
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS"
-    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+    integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/css/style.css" />
   <link href="https://fonts.googleapis.com/css?family=Raleway:700" rel="stylesheet">
 </head>
@@ -44,74 +45,77 @@
 
     <section id="main-content">
 
-    <div class="row" id="top-row">
+      <div class="row" id="top-row">
 
-      <div class="col-md-4 col-xs-12">
-        <div id="map">
+        <div class="col-md-4 col-xs-12">
+          <div id="map">
+          </div>
+        </div>
+
+
+        <div class="col-md-8 col-xs-12" id="weather">
+
+          <div class="card">
+            <div class="card-header">
+              <h2>Average Weather in <span class="city"></span></h2>
+            </div>
+            <div class="card-body" id="temp-chart-card">
+              <canvas id="tempChart"></canvas>
+            </div>
+          </div>
         </div>
       </div>
 
 
-      <div class="col-md-8 col-xs-12" id="weather">
 
-        <div class="card">
-          <div class="card-header">
-            <h2>Average Weather in <span class="city"></span></h2>
-          </div>
-          <div class="card-body">
-            <canvas id="tempChart"></canvas>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="row zomato-row">
-      <div class="col-md-6 food-score-col">
-        <div class="card">
-          <div class="card-header score-card" id="food-header">
-            <h2><span class="city"></span> Food </h2>
-          </div>
-          
-        </div>
-      </div>
-
-      <div class="col-md-6 nightlife-score-col">
-
-        <div class="card nightlife-card">
-          <div class="card-header score-card" id="nightlife-header">
-            <h2><span class="city"></span> Nightlife </h2>
-          </div>
-          
-        </div>
-      </div>
-
-      <div class="col-md-6 restaurants-section">
-        <div class="card">
-          <div class="card-header">
-            <h2>Best Rated <span class="city"></span> Restaurants</h2>
-          </div>
-          <div class="card-body zomato-restaurants row">
+      <div class="row zomato-row">
+        <div class="col-md-6 food-score-col">
+          <div class="card">
+            <div class="card-header score-card" id="food-header">
+              <h2><span class="city"></span> Food </h2>
+            </div>
 
           </div>
         </div>
-      </div>
-      <div class="col-md-6 brewery-section brewery-header">
-        <div class="card">
-          <div class="card-header ">
-            <h2>Local <span class="city"></span> Breweries</h2>
-          </div>
-          <div class="card-body brewery row">
+
+        <div class="col-md-6 nightlife-score-col">
+
+          <div class="card nightlife-card">
+            <div class="card-header score-card" id="nightlife-header">
+              <h2><span class="city"></span> Nightlife </h2>
+            </div>
 
           </div>
         </div>
+
+        <div class="col-md-6 restaurants-section">
+          <div class="card">
+            <div class="card-header">
+              <h2>Best Rated <span class="city"></span> Restaurants</h2>
+            </div>
+            <div class="card-body zomato-restaurants row">
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6 brewery-section brewery-header">
+          <div class="card">
+            <div class="card-header ">
+              <h2>Local <span class="city"></span> Breweries</h2>
+            </div>
+            <div class="card-body brewery">
+
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
   
   </section>
 </div>
+
 
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
       crossorigin="anonymous"></script>
@@ -120,7 +124,8 @@
     <!-- Chart.js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
     <!--Google API map-->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs5IvD5ky49g5YXR80uLMUtm-p86ulSXY&callback=initMap&libraries=places"
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs5IvD5ky49g5YXR80uLMUtm-p86ulSXY&callback=initMap&libraries=places"
       async defer></script>
     <script src="assets/javascript/project.js"></script>
 </body>

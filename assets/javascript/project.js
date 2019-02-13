@@ -51,6 +51,7 @@ function breweryCall(city) {
 function weatherCall(lat, long) {
   var tempsArray = [];
   var key = "cd768e4e7c686a1539e5422b289fe5ee";
+
   //var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26";
   var latitude = lat.toString();
   var longitude = long.toString();
@@ -302,15 +303,26 @@ function initMap() {
       "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
   });
   // to serarch for the location
-  var searchBox = new google.maps.places.SearchBox(
-    document.getElementById("city-input")
-  );
+  var searchBox1 = new google.maps.places.SearchBox(document.getElementById("city-input1"));
 
-  console.log(searchBox);
+  var searchBox2 = new google.maps.places.SearchBox(document.getElementById("city-input2"));
+
 
   // to change event on search box
-  google.maps.event.addListener(searchBox, "places_changed", function () {
-    $('.modal').css('display', 'none');//Hide modal if user makes a search
+  google.maps.event.addListener(searchBox1, "places_changed", handleSearchBoxChangesGenerator(searchBox1));
+  google.maps.event.addListener(searchBox2, "places_changed", handleSearchBoxChangesGenerator(searchBox2));
+  
+  function handleSearchBoxChangesGenerator(searchBox) {
+    return function() {
+      handleSearchBoxChange(searchBox);
+    }
+  }
+
+  function handleSearchBoxChange(searchBox) {
+    $('.mainPage').css('display','block');
+    $('.landingPage').css('display','none');
+    $('.modal').css('display','none');//Hide modal if user makes a search
+
     $("#main-content").css("display", "none");
     var places = searchBox.getPlaces();
     console.log(places.length)
@@ -381,5 +393,9 @@ function initMap() {
     map.fitBounds(bounds);
     // set zoom
     map.setZoom(11);
-  });
+  }
 }
+
+
+
+

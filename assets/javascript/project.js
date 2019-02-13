@@ -49,22 +49,30 @@ function breweryCall(city) {
 
 // Weather Call
 function weatherCall(lat, long) {
+  // Create empty array to store temps recieved from AJAX call.
   var tempsArray = [];
   var key = "cd768e4e7c686a1539e5422b289fe5ee";
   //var colinkey = "5362525d5bdad9fb24c68f96bf2e2f26";
   var latitude = lat.toString();
   var longitude = long.toString();
+  // Get current date
   var date = new Date();
+  // Get last year to use in API query (Example: 2018)
   var lastYear = (date.getFullYear() - 1).toString();
+  // Create a month variable to use in the API query
   var month = "0";
+  // Create a counter to keep track of the number of API calls made
   var callCounter = 0;
+  // Create the query and call the API twelve times (once for each month of the previous year)
   for (var i = 1; i < 13; i++) {
     if (i < 10) {
       month = "0" + i;
     } else {
       month = i;
     }
+    // Create the date to use in the API queryURL
     var queryDate = lastYear + "-" + month + "-15" + "T12:00:00";
+    // Create query URL
     var queryURL =
       "https://api.darksky.net/forecast/" +
       key +
@@ -83,27 +91,26 @@ function weatherCall(lat, long) {
       success: function (response) {
         callCounter++;
         console.log("callCounter", callCounter);
+        // Create an object with the time, hightemp, and low Temp
         var monthObject = {
           time: response.currently.time,
           tempHigh: response.daily.data[0].temperatureHigh,
           tempLow: response.daily.data[0].temperatureLow
         };
         tempsArray.push(monthObject);
+        // Only process the tempsArray after all twelve months have been recieved
         if (tempsArray.length === 12) {
-          onDataReceived();
+          // Sort tempsArray based on the month (API calls come back in a different order)
+          tempsArray.sort(function (a, b) {
+            return a.time - b.time;
+          });
+          createWeatherChart(tempsArray);
         }
       }
     });
   }
 
-  function onDataReceived() {
-
-    tempsArray.sort(function (a, b) {
-      return a.time - b.time;
-    });
-    createWeatherChart(tempsArray);
-  }
-
+  //Use tempArray to update the UI using chart.js
   function createWeatherChart(tempArray) {
     var highs = [];
     var lows = [];
@@ -316,15 +323,15 @@ function initMap() {
     console.log(places.length)
     //Display error message if there are no places found
 
-    if(places.length < 1){
-      $('.modal').css('display','block');
-      $('.overlay').css('height','100%');
-      $('.dismiss').on("click", function(){
-        $('.modal').css('display','none');
+    if (places.length < 1) {
+      $('.modal').css('display', 'block');
+      $('.overlay').css('height', '100%');
+      $('.dismiss').on("click", function () {
+        $('.modal').css('display', 'none');
       })
     } else {
       $("#main-content").css("display", "block");
-      $('.overlay').css('height','100%');
+      $('.overlay').css('height', '100%');
     }
     //bound
     var bounds = new google.maps.LatLngBounds();

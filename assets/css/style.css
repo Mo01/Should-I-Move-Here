@@ -8,7 +8,7 @@ body {
 }
 
 h2 {
-    font-size: 30px;
+    font-size: 28px;
 }
 
 .fa-sm {
@@ -178,8 +178,8 @@ p>i {
     margin-top: 30px;
 }
 
-.brewery-title > a{
-    color:black;
+.brewery-title>a {
+    color: black;
     text-decoration-line: underline;
 }
 

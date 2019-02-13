@@ -4,6 +4,7 @@ background: url(../images/background.jpg) no-repeat center center fixed;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  font-family: 'Raleway', sans-serif;
 }
 
 p > i {
@@ -14,8 +15,22 @@ p > i {
     display:none;
 }
 
+.jumbotron {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
 #jumbo-header {
     text-align: center;
+}
+
+.modal{
+    top:300px;
+}
+
+.dismiss {
+    background-color:#336f61;
+    border-color:#336f61;
 }
 
 .display-4{
@@ -66,6 +81,8 @@ p > i {
 }
 
 .score-bubble {
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight:bold;
     color: white;
     width: 77px;
     height: 77px;
@@ -73,6 +90,12 @@ p > i {
     display: flex;
     justify-content: center;
     margin:0 auto;
+}
+
+.score-bubble>h2 {
+    margin-top: 20px;
+    font-family:Arial, Helvetica, sans-serif;
+    font-weight: 600;
 }
 
 .restaurants-section {
@@ -99,10 +122,6 @@ p > i {
 .score-titles {
     display: flex;
     justify-content: space-evenly;
-}
-
-.score-bubble>h2 {
-    margin-top: 20px;
 }
 
 .score-titles>p {

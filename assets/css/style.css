@@ -281,6 +281,10 @@ p > i {
   background-color: rgba(255, 255, 255, 0.9);
 }
 
+.card-header{
+    border-bottom:0px;
+}
+
 .green {
   background-color: green;
 }

@@ -1,23 +1,23 @@
 body {
-  background: url(../images/background.jpg) no-repeat center center fixed; 
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-  font-family: 'Raleway', sans-serif;
+    background: url(../images/background.jpg) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: 'Raleway', sans-serif;
 }
 
-.overlay{
+.overlay {
     background-color: rgba(72, 72, 72, 0.4);
-    height:100vh;
+    height: 100vh;
 }
 
-p > i {
+p>i {
     font-size: 15px;
 }
 
-#main-content{
-    display:none;
+#main-content {
+    display: none;
 }
 
 .jumbotron {
@@ -30,41 +30,39 @@ p > i {
     text-align: center;
 }
 
-.modal{
-    top:300px;
+.modal {
+    top: 300px;
 }
 
 .dismiss {
-    background-color:#336f61;
-    border-color:#336f61;
+    background-color: #336f61;
+    border-color: #336f61;
 }
 
-.display-4{
+.display-4 {
     font-weight: 500;
-    color:white;
+    color: white;
 }
 
 .lead {
-    color:white;
+    color: white;
 }
 
 #city-input {
     width: 30%;
     height: 40px;
-    padding-left: 4px;
+    padding-left: 12px;
     border-radius: 4px;
     background-color: #636363c2;
     border: 0px solid white;
     color: white;
-        -moz-box-shadow:    inset 0 0 10px #000000;
-        -webkit-box-shadow: inset 0 0 10px #000000;
-        box-shadow:         inset 0 0 10px #000000;
+    -moz-box-shadow: inset 0 0 10px #000000;
+    -webkit-box-shadow: inset 0 0 10px #000000;
+    box-shadow: inset 0 0 10px #000000;
 }
 
-::placeholder{
-    color:rgba(255,255,255, 1);
-
-
+::placeholder {
+    color: rgba(255, 255, 255, 1);
 }
 
 #top-row {
@@ -81,11 +79,11 @@ p > i {
 
 .image-box {
     text-align: center;
-    margin-bottom:20px;
+    margin-bottom: 20px;
 }
 
-.image-box > p {
-    margin-bottom:0px;
+.image-box>p {
+    margin-bottom: 0px;
 }
 
 .restaurant-title {
@@ -95,8 +93,8 @@ p > i {
     font-weight: bold;
 }
 
-.restaurant-img{
-    margin-top:6px;
+.restaurant-img {
+    margin-top: 6px;
 }
 
 .score-box {
@@ -105,20 +103,20 @@ p > i {
 }
 
 .score-bubble {
-    font-family:Arial, Helvetica, sans-serif;
-    font-weight:bold;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
     color: white;
     width: 77px;
     height: 77px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
-    margin:0 auto;
+    margin: 0 auto;
 }
 
 .score-bubble>h2 {
     margin-top: 20px;
-    font-family:Arial, Helvetica, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     font-weight: 600;
 }
 
@@ -126,14 +124,13 @@ p > i {
     margin-top: 30px;
 }
 
-.score-card{
-    text-align:center;
+.score-card {
+    text-align: center;
 }
 
-.card{
+.card {
     background-color: rgba(255, 255, 255, 0.9);
 }
-
 
 .green {
     background-color: green;
@@ -168,47 +165,39 @@ p > i {
     top: 0px;
     touch-action: pan-x pan-y;
 }
-.brewery-header{
+
+.brewery-header {
     margin-top: 30px;
-    
 }
 
 /* Media queries */
 
-@media only screen and (max-width : 400px) {
-    .nightlife-card{
+@media only screen and (max-width: 400px) {
+    .nightlife-card {
         margin-top: 30px;
     }
-
-    #city-input{
-        width:88%;
+    #city-input {
+        width: 88%;
     }
-
-    .zomato-row{
-        display:flex;
+    .zomato-row {
+        display: flex;
     }
-
-    .food-score-col{
-        order:0;
+    .food-score-col {
+        order: 0;
     }
-
-    .restaurants-section{
-        order:1;
-    } 
-
-    .nightlife-score-col{
-        order:2;
+    .restaurants-section {
+        order: 1;
     }
-    .brewery-section{
-        order:3;
+    .nightlife-score-col {
+        order: 2;
     }
-
-    #map{
-        height:300px;
+    .brewery-section {
+        order: 3;
     }
-
-    #weather{
-        margin-top:30px;
+    #map {
+        height: 300px;
     }
-
+    #weather {
+        margin-top: 30px;
     }
+}

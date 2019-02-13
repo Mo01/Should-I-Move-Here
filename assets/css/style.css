@@ -129,7 +129,7 @@ p>i {
 }
 
 .modal {
-    top: 300px;
+    top: 330px;
 }
 
 .dismiss {
@@ -277,13 +277,13 @@ p>i {
 /* Media queries */
 
 @media only screen and (max-width: 480px) {
-    h2 {
+    .card-header > h2 {
         font-size: 18px;
     }
     .nightlife-card {
         margin-top: 30px;
     }
-    #city-input {
+    .city-input {
         width: 88%;
     }
     .zomato-row {

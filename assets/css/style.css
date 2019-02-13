@@ -390,4 +390,8 @@ p > i {
   #weather {
     margin-top: 30px;
   }
+
+  #footer{
+    height: 75px;
+  }
 }

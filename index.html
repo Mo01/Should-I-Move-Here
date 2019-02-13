@@ -17,117 +17,122 @@
 <body>
   <div class="overlay">
     <div class="modal" tabindex="-1" role="dialog">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title">Invalid city!</h5>
-              <button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <p>The city you entered could not be found on Google Maps. Please enter a valid one.</p>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary dismiss" data-dismiss="modal">Close</button>
-            </div>
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Invalid city!</h5>
+            <button type="button" class="close dismiss" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p>The city you entered could not be found on Google Maps. Please enter a valid one.</p>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary dismiss" data-dismiss="modal">Close</button>
           </div>
         </div>
-      </div>
-  <div class="container">
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container" id="jumbo-header">
-        <h1 class="display-4">Should I Move Here?</h1>
-        <p class="lead">Should I move there? Let us help.</p>
-        <input class="city-input" id="city-input" type="text" placeholder="Enter a city" />
       </div>
     </div>
-
-    <section id="main-content">
-
-      <div class="row" id="top-row">
-
-        <div class="col-md-4 col-xs-12">
-          <div id="map">
-          </div>
-        </div>
-
-
-        <div class="col-md-8 col-xs-12" id="weather">
-
-          <div class="card">
-            <div class="card-header">
-              <h2>Average Weather in <span class="city"></span></h2>
-            </div>
-            <div class="card-body" id="temp-chart-card">
-              <canvas id="tempChart"></canvas>
-            </div>
-          </div>
+    <div class="container">
+      <div class="jumbotron jumbotron-fluid">
+        <div class="container" id="jumbo-header">
+          <h1 class="display-4">Should I Move Here?</h1>
+          <p class="lead">Should I move there? Let us help.</p>
+          <input class="city-input" id="city-input" type="text" placeholder="Enter a city" />
         </div>
       </div>
 
+      <section id="main-content">
 
+        <div class="row" id="top-row">
 
-      <div class="row zomato-row">
-        <div class="col-md-6 food-score-col">
-          <div class="card">
-            <div class="card-header score-card" id="food-header">
-              <h2><span class="city"></span> Food </h2>
+          <div class="col-md-4 col-xs-12">
+            <div id="map">
             </div>
+          </div>
 
+
+          <div class="col-md-8 col-xs-12" id="weather">
+
+            <div class="card">
+              <div class="card-header">
+                <h2><i class="fas fa-sun fa-sm"></i>Average Weather in <span class="city"></span></h2>
+              </div>
+              <div class="card-body" id="temp-chart-card">
+                <canvas id="tempChart"></canvas>
+              </div>
+            </div>
           </div>
         </div>
 
-        <div class="col-md-6 nightlife-score-col">
 
-          <div class="card nightlife-card">
-            <div class="card-header score-card" id="nightlife-header">
-              <h2><span class="city"></span> Nightlife </h2>
-            </div>
 
-          </div>
-        </div>
-
-        <div class="col-md-6 restaurants-section">
-          <div class="card">
-            <div class="card-header">
-              <h2>Best Rated <span class="city"></span> Restaurants</h2>
-            </div>
-            <div class="card-body zomato-restaurants row">
+        <div class="row zomato-row">
+          <div class="col-md-6 food-score-col">
+            <div class="card">
+              <div class="card-header score-card" id="food-header">
+                <h2><i class="fas fa-utensils fa-sm"></i><span class="city"></span>Food </h2>
+              </div>
 
             </div>
           </div>
-        </div>
-        <div class="col-md-6 brewery-section brewery-header">
-          <div class="card">
-            <div class="card-header ">
-              <h2>Local <span class="city"></span> Breweries</h2>
-            </div>
-            <div class="card-body brewery">
+
+          <div class="col-md-6 nightlife-score-col">
+
+            <div class="card nightlife-card">
+              <div class="card-header score-card" id="nightlife-header">
+                <h2><i class="fas fa-glass-cheers fa-sm"></i><span class="city"></span>Nightlife </h2>
+              </div>
 
             </div>
           </div>
+
+          <div class="col-md-6 restaurants-section">
+            <div class="card">
+              <div class="card-header">
+                <h2><i class="fas fa-hamburger fa-sm"></i>Best Rated <span class="city"></span>
+                  Restaurants</h2>
+              </div>
+              <div class="card-body zomato-restaurants row">
+
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 brewery-section brewery-header">
+            <div class="card">
+              <div class="card-header ">
+                <h2><i class="fas fa-beer fa-sm"></i>Local <span class="city"></span> Breweries</h2>
+              </div>
+              <div class="card-body brewery">
+
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
 
     </div>
   </div>
-  
+
   </section>
-</div>
+  </div>
 
 
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
-      crossorigin="anonymous"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js" integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp" crossorigin="anonymous"></script>
-    <!-- Chart.js Library -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
-    <!--Google API map-->
-    <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs5IvD5ky49g5YXR80uLMUtm-p86ulSXY&callback=initMap&libraries=places"
-      async defer></script>
-    <script src="assets/javascript/project.js"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.0/js/bootstrap.min.js"
+    integrity="sha384-7aThvCh9TypR7fIc2HV4O/nFMVCBwyIUKL8XCtKE+8xgCgl/PQGuFsvShjr74PBp"
+    crossorigin="anonymous"></script>
+  <!-- Chart.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.3/Chart.bundle.js"></script>
+  <!--Google API map-->
+  <script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBs5IvD5ky49g5YXR80uLMUtm-p86ulSXY&callback=initMap&libraries=places"
+    async defer></script>
+  <script src="assets/javascript/project.js"></script>
 </body>
 
 </html>

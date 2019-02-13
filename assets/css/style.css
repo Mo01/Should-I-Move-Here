@@ -14,6 +14,7 @@
   transform: translate(-50%, -50%);
   position: relative;
 }
+
 /*Vertical Sliding*/
 .slidingVertical {
   display: inline;
@@ -131,6 +132,8 @@
   }
 }
 
+/* Main search page styling */
+
 .mainPage {
   background: url(../images/background.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
@@ -178,6 +181,8 @@ p > i {
   text-align: center;
 }
 
+/* Modal styles */
+
 .modal {
   top: 330px;
 }
@@ -187,14 +192,11 @@ p > i {
   border-color: #336f61;
 }
 
+/* Jumbotron styles */
+
 .display-4 {
   font-weight: 500;
   color: white;
-}
-
-.lead {
-  color: white;
-  font-size: 30px;
 }
 
 .city-input {
@@ -213,6 +215,8 @@ p > i {
 ::placeholder {
   color: rgba(255, 255, 255, 1);
 }
+
+/* Query card styles */
 
 #top-row {
   min-height: 300px;
@@ -327,6 +331,8 @@ p > i {
   color: black;
   text-decoration-line: underline;
 }
+
+/* Footer styles */
 
 #footer {
   text-align:center;

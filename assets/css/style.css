@@ -178,6 +178,11 @@ p>i {
     margin-top: 30px;
 }
 
+.brewery-title > a{
+    color:black;
+    text-decoration-line: underline;
+}
+
 /* Media queries */
 
 @media only screen and (max-width: 480px) {

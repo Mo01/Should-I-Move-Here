@@ -360,6 +360,12 @@ p > i {
 /* Media queries */
 
 @media only screen and (max-width: 480px) {
+  .display-4 {
+    font-weight: 500;
+    color: white;
+    font-size: 30px;
+  }
+ 
   .card-header > h2 {
     font-size: 18px;
   }
@@ -394,4 +400,7 @@ p > i {
   #footer{
     height: 75px;
   }
+
+  
 }
+

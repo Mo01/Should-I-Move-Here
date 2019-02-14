@@ -364,6 +364,7 @@ p > i {
     font-weight: 500;
     color: white;
     font-size: 30px;
+    margin-right: 90px;
   }
  
   .card-header > h2 {

@@ -198,7 +198,7 @@ p > i {
 
 /* Jumbotron styles */
 
-.display-4 {
+.title-landing,.title-main {
   font-weight: 500;
   color: white;
 }
@@ -360,7 +360,7 @@ p > i {
 /* Media queries */
 
 @media only screen and (max-width: 480px) {
-  .display-4 {
+  .title-landing {
     font-weight: 500;
     color: white;
     font-size: 30px;

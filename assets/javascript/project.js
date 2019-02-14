@@ -211,19 +211,19 @@ function zomatoCall(city) {
           "</div>"
         );
         //Add color of popularity and nightlife index
-        if (cityPopularity >= 3.5) {
+        if (cityPopularity >= 3.9) {
           $(".popularity-score").addClass("green");
-        } else if (cityPopularity > 1.5 && cityPopularity < 3.5) {
+        } else if (cityPopularity >= 1.9 && cityPopularity <= 3.89) {
           $(".popularity-score").addClass("yellow");
-        } else if (cityPopularity < 1.5) {
+        } else if (cityPopularity <= 1.89) {
           $(".popularity-score").addClass("red");
         }
 
-        if (nightlifeIndex >= 3.5) {
+        if (nightlifeIndex >= 3.9) {
           $(".nightlife-score").addClass("green");
-        } else if (nightlifeIndex > 1.5 && nightlifeIndex < 3.5) {
+        } else if (nightlifeIndex >= 1.9 && nightlifeIndex <= 3.89) {
           $(".nightlife-score").addClass("yellow");
-        } else if (nightlifeIndex < 1.5) {
+        } else if (nightlifeIndex <= 1.89) {
           $(".nightlife-score").addClass("red");
         }
         let bestRestaurants = cityInfo.best_rated_restaurant;

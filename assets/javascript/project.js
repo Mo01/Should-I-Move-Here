@@ -287,8 +287,8 @@ function initMap() {
   var marker = new google.maps.Marker({
     map: map,
     position: myLatLng,
-    draggable: true,
-    title: "Welcome to SIMTO!",
+    // draggable: true,
+    // title: "Welcome to SIMTO!",
     icon:
       "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png"
   });
@@ -360,17 +360,17 @@ function initMap() {
       });
 
       // Add the circle for this city to the map.
-      var cityCircle = new google.maps.Circle({
-        strokeColor: "#FF0000",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FF0000",
-        fillOpacity: 0.35,
-        map: map,
-        center: { lat: lat1, lng: lng1 },
-        radius: Math.sqrt(100000000)
-      });
-      console.log("cityCircle =   " + cityCircle);
+      // var cityCircle = new google.maps.Circle({
+      //   strokeColor: "#FF0000",
+      //   strokeOpacity: 0.8,
+      //   strokeWeight: 2,
+      //   fillColor: "#FF0000",
+      //   fillOpacity: 0.35,
+      //   map: map,
+      //   center: { lat: lat1, lng: lng1 },
+      //   radius: Math.sqrt(100000000)
+      // });
+      // console.log("cityCircle =   " + cityCircle);
 
       marker.addListener("click", function () {
         infowindow.open(map, marker);
